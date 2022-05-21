@@ -1,0 +1,9 @@
+<div *ngIf="modelSubject$ | async as modelList; else skeleton">
+    <app-application-plate *ngFor="let item of modelList" [model]="item">
+
+    </app-application-plate>
+</div>
+
+<ng-template #skeleton>
+    скелетон
+</ng-template>

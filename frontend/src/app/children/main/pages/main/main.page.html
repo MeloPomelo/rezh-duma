@@ -1,0 +1,88 @@
+<!-- <hr class="header-bottom" />
+<div class="container">
+  <div class="intro-content">
+    <span class="intro-title">Добрый день, опишите тему вашей проблемы</span>
+
+    <div class="intro-circle-container">
+      <div class="circle-1-box">
+        <span class="circle circle-1"></span>
+      </div>
+      <div class="circle-2-box">
+        <span class="circle circle-2"></span>
+      </div>
+      <div class="circle-3-box">
+        <span class="circle circle-3"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-request">
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Например: ЖКХ, дороги, медицина</mat-label>
+      <input matInput type="text" [(ngModel)]="value" />
+      <button
+        *ngIf="value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="value = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-flat-button class="user-send-request">Поиск</button>
+  </div>
+
+  <div class="lasts-applications">
+    <h2 (click)="gotoPage(applicationsPath)" class="lasts-applications-title">Последние заявки</h2>
+    <ul class="lasts-applications-list">
+      <li>
+        <app-application></app-application>
+      </li>
+      <li>
+        <app-application></app-application>
+      </li>
+      <li>
+        <app-application></app-application>
+      </li>
+    </ul>
+
+    <div class="lasts-applications-lazy-load">
+      <span class="lazy-load-content">Загрузить ещё</span>
+      <mat-icon class="lazy-load-icon">south</mat-icon>
+    </div>
+  </div>
+
+  <div class="voting-box">
+    <h2 (click)="gotoPage(votingsPath)" class="voting-title">Актуальные голосования</h2>
+    <ul class="lasts-applications-list">
+      <li>
+        <app-voting></app-voting>
+      </li>
+      <li>
+        <app-voting></app-voting>
+      </li>
+      <li>
+        <app-voting></app-voting>
+      </li>
+    </ul>
+
+    <div class="voting-lazy-load">
+      <span class="lazy-load-content">Загрузить ещё</span>
+      <mat-icon class="lazy-load-icon">south</mat-icon>
+    </div>
+  </div>
+</div> -->
+<app-navbar></app-navbar>
+<hr class="header-bottom" />
+<div>
+    <div>
+        <xng-breadcrumb>
+        </xng-breadcrumb>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<app-footer></app-footer>

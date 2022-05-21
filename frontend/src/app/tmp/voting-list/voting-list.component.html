@@ -1,0 +1,33 @@
+<app-navbar [currPage]="namePage"></app-navbar>
+<hr class="header-bottom" />
+
+<!-- <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+<ng-template #iconTemplate>
+  <mat-icon>chevron_right</mat-icon>
+</ng-template> -->
+
+<!-- <xng-breadcrumb>
+  <ng-container *xngBreadcrumbItem="let breadcrumb">
+    <ng-container>{{ breadcrumb }}</ng-container>
+  </ng-container>
+</xng-breadcrumb> -->
+
+<div class="container">
+  <div class="voting-list-box">
+    <h2 class="voting-list-title">Голосования</h2>
+
+    <ul class="voting-list">
+      <li><app-voting></app-voting></li>
+      <li><app-voting></app-voting></li>
+      <li><app-voting></app-voting></li>
+      <li><app-voting></app-voting></li>
+    </ul>
+
+    <div class="voting-lazy-load">
+      <span class="lazy-load-content">Загрузить ещё</span>
+      <mat-icon class="lazy-load-icon">south</mat-icon>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

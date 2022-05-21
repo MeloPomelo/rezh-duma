@@ -1,0 +1,71 @@
+<p>
+  <mat-toolbar [ngClass]="{ 'no-back': location == 'footer' }">
+    <span (click)="gotoPage(homePage.main)" class="header-name"
+    [ngClass]="{ white: location === 'footer', green: location === 'header' }">
+        Реж
+        <br/>
+        дума
+        </span
+    >
+    <nav>
+      <ul class="main-menu">
+        <li (click)="gotoPage(homePage.main)">
+          <span class="nav-link-page" href="#">Главная</span>
+        </li>
+        <li><span class="nav-link-page" href="#">Заявки</span></li>
+        <li><span class="nav-link-page" href="#">Аналитика</span></li>
+        <li><span class="nav-link-page" href="#">Голосования</span></li>
+        <li>
+          <span class="nav-link-page" href="#">Часто задаваемые вопросы</span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- <div *ngIf="currPage.name == homePage.signIn" class="btn-registry-box">
+      <button (click)="gotoPage(homePage.signUp)" class="registry">
+        Регистрация
+      </button>
+    </div>
+
+    <div *ngIf="currPage.name == homePage.signUp" class="btn-auth-box">
+      <button (click)="gotoPage(homePage.signIn)" class="auth">Войти</button>
+    </div>
+
+    <div
+      *ngIf="currPage.name == homePage.main && !isLogged"
+      class="btn-sign-box"
+    >
+      <button (click)="gotoPage(homePage.signIn)" class="sign-in">Войти</button>
+      <span>/</span>
+      <button (click)="gotoPage(homePage.signUp)" class="sign-up">
+        Регистрация
+      </button>
+    </div> -->
+
+    <div *ngIf="isLogged" class="logged-panel">
+      <button mat-flat-button class="new-application-btn">
+        Создать заявку
+      </button>
+    </div>
+
+    <div *ngIf="isLogged">
+      <div [matMenuTriggerFor]="userMenu" class="user-profile">
+        <mat-icon class="u-icon user-icon">person_outline</mat-icon>
+        <mat-icon class="u-icon user-arrow">expand_more</mat-icon>
+      </div>
+      <mat-menu #userMenu="matMenu" xPosition="before" class="user-menu">
+        <div mat-menu-item class="user-menu-account">
+          <mat-icon class="u-icon user-icon user-icon--big">person_outline</mat-icon>
+          <div class="user-menu-fullname">
+            <span class="user-menu-name">Максим</span>
+            <span class="user-menu-lastname">Алёшин</span>
+          </div>
+        </div>
+        <button mat-menu-item>Личные данные</button>
+        <button mat-menu-item>Мои заявки</button>
+        <button mat-menu-item>Мои голосования</button>
+        <button mat-menu-item>Выйти</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</p>
