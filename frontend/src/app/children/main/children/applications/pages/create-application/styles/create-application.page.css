@@ -1,0 +1,35 @@
+.applications {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.applications app-application-plate {
+  width: calc((100% / 3) - 30px);
+  margin-bottom: 20px;
+}
+
+.applications-lazy-load {
+  margin: 25px auto;
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.lasts-applications-lazy-load:hover {
+  cursor: pointer;
+}
+
+applications {
+  margin: 0;
+  padding: 0;
+}
+
+.applications-title {
+  font-family: Manrope;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  width: 100%;
+}

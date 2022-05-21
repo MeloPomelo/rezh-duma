@@ -1,0 +1,38 @@
+/* .header-name{
+    font-family: 'Inter';
+
+    color:#AAD576;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 27px;
+    line-height: 25px;
+    margin-right: 40px;
+}
+
+.mat-toolbar {
+    background-color: #F6FFFF;
+    color: #151515;
+    margin-top: 40px !important;
+    padding-left: 100px !important;
+}
+
+.sign-in, .sign-up{
+    border: inherit;
+    background-color: inherit;
+    font-size: 16px;
+    color: #151515;
+}
+
+.btn-sign-box{
+    margin: 0 50px;
+}
+
+.btn-sign-box span{
+    font-size: 16px;
+    color: #151515;
+}
+
+.sign-in:hover, .sign-up:hover {
+    background-color: #C2EDCE;
+    border-radius: 7px;
+} */

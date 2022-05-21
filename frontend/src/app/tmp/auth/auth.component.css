@@ -1,0 +1,68 @@
+.auth-form{
+    /* border: solid 1px; */
+    min-width: 150px;
+    max-width: 450px;
+    width: 100%;
+    display:block;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: Inter;
+    font-weight: 400;
+}
+
+.auth-title-form{
+    font-family: Manrope;
+    font-weight: 400;
+    margin-left: 15px;
+    margin-bottom: 70px;
+}
+
+.login-input-box, .pass-input-box{
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    width: 100%;
+}
+
+.login-input-box{
+    margin-bottom: 20px;
+}
+
+/* .pass-input-box{
+    margin-bottom: 15px; 
+} */
+
+.auth-form input::placeholder{
+    color:rgb(0, 0, 0, 50%);
+}
+
+.forgot-pass{
+    cursor: pointer;
+    color: #151515;
+    margin-left: 15px;
+    margin-top: 15px;
+    display: block;
+}
+
+.header-bottom{
+    color: #151515;
+    opacity: 10%;
+}
+
+.btn-join{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: #C2EDCE;
+    border: inherit;
+    border-radius: 5px;
+    padding: 15px 20px;
+}
+
+.btn-join:hover{
+    background-color: #acecbe
+}

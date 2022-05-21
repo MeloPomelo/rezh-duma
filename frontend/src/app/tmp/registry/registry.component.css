@@ -1,0 +1,54 @@
+.signup-form {
+    margin-top: 60px !important;
+    font-family: Inter !important;
+    font-weight: 400 !important;
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical{
+    background-color: #F6FFFF;
+}
+
+.signup-title-form {
+    font-family: Manrope;
+    font-size: 30px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.signup-form{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn-nav{
+    border: inherit;
+    font-family: Manrope;
+    background-color: #F6FFFF;
+    opacity: 85%;
+    padding: 0 16px;
+    line-height: 36px;
+    background-color: #C2EDCE;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.btn-nav:hover{
+    background-color: #a8ebbb;
+}
+
+.signup-box{
+    /* background-color: #bdd9c57a; */
+    border-radius: 10px;
+}
+
+.btn-signup{
+    border: inherit;
+    font-family: Manrope;
+    background-color: #F6FFFF;
+    opacity: 85%;
+    padding: 0 16px;
+    line-height: 36px;
+    background-color: #C2EDCE;
+    border-radius: 4px;
+    margin-right: 10px;
+}

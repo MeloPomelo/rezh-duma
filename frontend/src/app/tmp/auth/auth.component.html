@@ -1,0 +1,30 @@
+<app-navbar [currPage]="namePage"></app-navbar>
+<hr class="header-bottom">
+<div class="auth-form">
+  <form>
+    <h2 class="auth-title-form">Вход</h2>
+
+    <mat-form-field class="login-input-box" appearance="fill">
+      <mat-label>Введите ваш адрес электронной почты</mat-label>
+      <input type="email" matInput [formControl]="loginFormControl" placeholder="rezh@duma.ru" #userEmail>
+      <mat-error *ngIf="loginFormControl.hasError('email') && !loginFormControl.hasError('required')">
+        Некорректный адрес эл. почты
+      </mat-error>
+      <mat-error *ngIf="loginFormControl.hasError('required')">
+        <span>Обязательное поле</span>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="pass-input-box" appearance="fill">
+      <mat-label>Введите ваш пароль</mat-label>
+      <input type="password" matInput [formControl]="passFormControl" placeholder="uKd13Ry" #userPass>
+      <mat-error *ngIf="passFormControl.hasError('required')">
+        <span>Обязательное поле</span>
+      </mat-error>
+    </mat-form-field>
+
+    <a class="forgot-pass">Не помню пароль</a>
+
+    <button (click)="authService.SignIn(userEmail.value, userPass.value)" type="submit" class="btn-join">Войти</button>
+  </form>
+</div>
