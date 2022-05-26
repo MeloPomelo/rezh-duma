@@ -1,7 +1,8 @@
 FROM python:3.10.4-slim-buster AS development_build
 RUN pip install poetry
-WORKDIR /code
-COPY pyproject.toml poetry.lock /code/
+WORKDIR /app
+COPY pyproject.toml poetry.lock alembic.ini /app/
 RUN poetry install
-COPY ./backend /code/backend
-COPY main.py /code/main.py
+COPY ./backend /app/backend
+COPY ./migrations /app/migrations
+COPY main.py /app/main.py

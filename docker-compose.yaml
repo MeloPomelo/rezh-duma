@@ -8,6 +8,7 @@ services:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DATABASE}
+      - DB_HOST=${DB_HOST}
     ports:
       - "${DB_PORT}:5432"
   backend:
@@ -16,6 +17,8 @@ services:
       context: ./backend
       dockerfile: prod.DockerFile
     command: poetry run main
+    env_file:
+      - .env
     expose:
       - 8000
     labels:
