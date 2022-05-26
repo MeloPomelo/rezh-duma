@@ -7,19 +7,26 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { MainPage } from './pages/main/main.page';
 import { VotingRoutingModule } from './children/voting/voting.routing-module';
 import { ApplicationsRoutingModule } from './children/applications/applications.routing-module';
+import { MainLayoutPage } from './pages/main-layout/main-layout.page';
 
 
 
 const components: any[] = [
+    MainLayoutPage,
     MainPage
 ];
 
 const routes: Routes = [
     {
         path: '',
-        component: MainPage,
+        component: MainLayoutPage,
         data: { title : 'Главная' , breadcrumb: { label: 'Главная', title: 'Главная' } },
         children: [
+            {
+                path: '',
+                data: { title: 'Главная', breadcrumb: { label: 'Главная', title: 'Главная' } },
+                component: MainPage
+            },
             {
                 path: 'applications',
                 data: { title: 'Заявки', breadcrumb: { label: 'Заявки', title: 'Заявки' } },
