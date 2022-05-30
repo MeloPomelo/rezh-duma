@@ -9,6 +9,8 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DATABASE}
       - DB_HOST=${DB_HOST}
+    expose:
+      - 5432
     ports:
       - "${DB_PORT}:5432"
   backend:
@@ -16,7 +18,7 @@ services:
     build:
       context: ./backend
       dockerfile: prod.DockerFile
-    command: poetry run main
+    command: bash -c "poetry run alembic upgrade head && poetry run main"
     env_file:
       - .env
     expose:

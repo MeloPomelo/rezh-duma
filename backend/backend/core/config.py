@@ -2,9 +2,7 @@ from starlette.config import Config
 
 VERSION = "1.0.0"
 
-STANDARD_SCHEMES_LIMIT = 25
-STANDARD_RULES_LIMIT = STANDARD_SCHEMES_LIMIT
-STANDARD_USERS_LIMIT = 10
+STANDARD_DATA_LIMIT = 40
 
 config: Config = Config(".env")
 
