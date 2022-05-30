@@ -26,7 +26,7 @@ async def create_application(application: ApplicationInCreate,
 @router.post("/reply/{application_id}", response_model=ApplicationInDB, status_code=status.HTTP_200_OK)
 async def reply(application_id: int, application: ApplicationInReply,
                 repo: ApplicationsRepository = Depends(get_applications_repository)):
-    return await repo.reply(application_id, application.dict())
+    return await repo.update(application_id, application.dict())
 
 
 @router.put("/{application_id}", response_model=ApplicationInDB, status_code=status.HTTP_200_OK)
