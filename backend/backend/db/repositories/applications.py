@@ -3,8 +3,7 @@ from sqlalchemy import Table, select, func
 from backend.core.config import STANDARD_DATA_LIMIT
 from backend.db.repositories.base_domain import BaseDomainRepository
 from backend.models.domains.application import ApplicationInDB
-from backend.models.schemas.application import (ApplicationInSelect, ListOfApplications, ApplicationInCreate,
-                                                ApplicationInReply, ApplicationInUpdate)
+from backend.models.schemas.application import ApplicationInSelect, ListOfApplications, ApplicationInCreate
 
 
 class ApplicationsRepository(BaseDomainRepository):

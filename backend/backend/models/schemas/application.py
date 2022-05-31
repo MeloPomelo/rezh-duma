@@ -1,6 +1,6 @@
 from backend.models.base import BaseModel
-from backend.models.domains.application import Application, ApplicationInDB, BaseDomainInSelectModelMixin
-from backend.models.mixins.base_domain import ListOfBaseDomainsMixin
+from backend.models.domains.application import Application, ApplicationInDB
+from backend.models.mixins.base_domain import ListOfBaseDomainsMixin, BaseDomainInSelectModelMixin
 
 
 class ListOfApplications(ListOfBaseDomainsMixin):

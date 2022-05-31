@@ -1,7 +1,5 @@
 from typing import Optional
-
-from backend.models.mixins.base_domain import (BaseDomainModelMixin, BaseDomainInDbModelMixin,
-                                               BaseDomainInSelectModelMixin)
+from backend.models.mixins.base_domain import BaseDomainModelMixin, BaseDomainInDbModelMixin
 
 
 class Application(BaseDomainModelMixin):

@@ -6,8 +6,7 @@ import backend.api.routes as routes
 app = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
 
 api_routes = ((routes.applications_router, "applications"),
-              # (routes.polls, "polls")
-              )
+              (routes.faq_router, "faqs"))
 
 for router, tag in api_routes:
     app.include_router(router, prefix=fr"/{tag}", tags=[tag])
