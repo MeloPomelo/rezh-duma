@@ -42,8 +42,6 @@ services:
       - traefik
   frontend:
     container_name: angular_container
-    networks:
-      - t1_proxy
     build:
       context: ./frontend
       dockerfile: prod.DockerFile
@@ -67,9 +65,6 @@ services:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
     restart: always
-    networks:
-      - t1_proxy
-      - default
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
@@ -93,9 +88,6 @@ services:
   traefik:
     image: traefik
     container_name: traefik_container
-    networks:
-      - default
-      - t1_proxy
     domainname: ${DOMAIN}
     ports:
       - "80:80"
@@ -119,10 +111,3 @@ services:
     volumes:
       - "./traefik.dev.toml:/etc/traefik/traefik.toml"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-
-networks:
-  t1_proxy:
-    external:
-      name: t1_proxy
-  default:
-    driver: bridge
