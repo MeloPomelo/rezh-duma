@@ -114,7 +114,7 @@ services:
       - "traefik.frontend.headers.SSLHost=example.com"
       - "traefik.frontend.headers.STSIncludeSubdomains=true"
       - "traefik.frontend.headers.STSPreload=true"
-      - "traefik.frontend.headers.customFrameOptionsValue: allow-from https:${DOMAINNAME}"
+      - "traefik.frontend.headers.customFrameOptionsValue: allow-from https:${DOMAIN}"
       - "traefik.frontend.auth.basic.users=${HTTP_USERNAME}:${HTTP_PASSWORD}"
     volumes:
       - "./traefik.dev.toml:/etc/traefik/traefik.toml"
