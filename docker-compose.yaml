@@ -25,8 +25,6 @@ services:
     command: bash -c "poetry run alembic upgrade head && poetry run main"
     env_file:
       - .env
-    expose:
-      - 8000
     networks:
       - web
       - internal
@@ -35,6 +33,7 @@ services:
       - "traefik.docker.network=web"
       - "traefik.http.routers.api.entrypoints=websecure"
       - "traefik.http.routers.api.rule=Host(`api.localhost`)"
+      - "traefik.port=8000"
     depends_on:
       - db
       - traefik
@@ -43,13 +42,12 @@ services:
     build:
       context: ./frontend
       dockerfile: prod.DockerFile
-    expose:
-       - 4200
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
       - "traefik.http.routers.front.entrypoints=websecure"
       - "traefik.http.routers.front.rule=Host(`localhost`)"
+      - "traefik.port=4200"
     networks:
       - web
     depends_on:
@@ -61,13 +59,12 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
-    expose:
-      - 80
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
       - "traefik.http.routers.pgadmin.entrypoints=websecure"
       - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.localhost`)"
+      - "traefik.port=80"
     networks:
       - internal
       - web
@@ -89,6 +86,7 @@ services:
       - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.middlewares=user-auth@file"
+      - "traefik.port=80"
     volumes:
         - /etc/localtime:/etc/localtime:ro
         - /var/run/docker.sock:/var/run/docker.sock:ro
