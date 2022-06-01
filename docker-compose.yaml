@@ -28,12 +28,13 @@ services:
     networks:
       - web
       - internal
+    expose:
+      - 8000
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=web"
-      - "traefik.http.routers.api.entrypoints=websecure"
-      - "traefik.http.routers.api.rule=Host(`api.rezhduma.live`)"
-      - "traefik.port=8000"
+      - "traefik.http.routers.api.rule=Host(`api.${DOMAIN}`)"
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.tls.certresolver=letsencrypt"
     depends_on:
       - db
       - traefik
@@ -42,12 +43,14 @@ services:
     build:
       context: ./frontend
       dockerfile: prod.DockerFile
+    expose:
+      - 4200
+      - 80
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=web"
-      - "traefik.http.routers.front.entrypoints=websecure"
-      - "traefik.http.routers.front.rule=Host(`rezhduma.live`)"
-      - "traefik.port=4200"
+      - "traefik.http.routers.front.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.front.tls=true"
+      - "traefik.http.routers.front.tls.certresolver=letsencrypt"
     networks:
       - web
     depends_on:
@@ -59,12 +62,13 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    expose:
+      - 80
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=web"
-      - "traefik.http.routers.pgadmin.entrypoints=websecure"
-      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.rezhduma.live`)"
-      - "traefik.port=80"
+      - "traefik.http.routers.db.rule=Host(`pgadmin.${DOMAIN}`)"
+      - "traefik.http.routers.db.tls=true"
+      - "traefik.http.routers.db.tls.certresolver=letsencrypt"
     networks:
       - internal
       - web
@@ -78,22 +82,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=web"
-      - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.rezhduma.live`)"
-      - "traefik.http.routers.traefik.service=api@internal"
-      - "traefik.http.routers.traefik.middlewares=user-auth@file"
-      - "traefik.port=80"
     volumes:
-        - /etc/localtime:/etc/localtime:ro
-        - /var/run/docker.sock:/var/run/docker.sock:ro
-        - ./traefik-data/traefik.yml:/traefik.yml:ro
-        - ./:/etc/traefik
-        - ./traefik-data/acme.json:/acme.json
-        - ./traefik-data/configurations:/configurations
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "traefik.prod.toml:/etc/traefik/traefik.toml"
     networks:
       - web
 
