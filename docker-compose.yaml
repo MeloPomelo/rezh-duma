@@ -33,8 +33,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.app-secure.entrypoints=websecure"
-      - "traefik.http.routers.app-secure.rule=Host(`api.${DOMAIN}`)"
+      - "traefik.http.routers.api.entrypoints=websecure"
+      - "traefik.http.routers.api.rule=Host(`api.${DOMAIN}`)"
     depends_on:
       - db
       - traefik
@@ -43,11 +43,13 @@ services:
     build:
       context: ./frontend
       dockerfile: prod.DockerFile
+    expose:
+       - 4200
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.app-secure.entrypoints=websecure"
-      - "traefik.http.routers.app-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.front.entrypoints=websecure"
+      - "traefik.http.routers.front.rule=Host(`${DOMAIN}`)"
     networks:
       - web
     depends_on:
@@ -59,11 +61,13 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    expose:
+      - 80
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.app-secure.entrypoints=websecure"
-      - "traefik.http.routers.app-secure.rule=Host(`pgadmin.${DOMAIN}`)"
+      - "traefik.http.routers.pgadmin.entrypoints=websecure"
+      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.${DOMAIN}`)"
     networks:
       - internal
       - web
@@ -81,10 +85,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.${DOMAIN}`)"
-      - "traefik.http.routers.traefik-secure.service=api@internal"
-      - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.middlewares=user-auth@file"
     volumes:
         - /etc/localtime:/etc/localtime:ro
         - /var/run/docker.sock:/var/run/docker.sock:ro
