@@ -34,7 +34,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
       - "traefik.http.routers.api.entrypoints=websecure"
-      - "traefik.http.routers.api.rule=Host(`api.${DOMAIN}`)"
+      - "traefik.http.routers.api.rule=Host(`api.localhost`)"
     depends_on:
       - db
       - traefik
@@ -49,7 +49,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
       - "traefik.http.routers.front.entrypoints=websecure"
-      - "traefik.http.routers.front.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.front.rule=Host(`localhost`)"
     networks:
       - web
     depends_on:
@@ -67,7 +67,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
       - "traefik.http.routers.pgadmin.entrypoints=websecure"
-      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.${DOMAIN}`)"
+      - "traefik.http.routers.pgadmin.rule=Host(`pgadmin.localhost`)"
     networks:
       - internal
       - web
