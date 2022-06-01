@@ -1,15 +1,45 @@
-[entryPoints]
-  [entryPoints.web]
-    address = ":80"
+#debug = true
 
+logLevel = "ERROR" #DEBUG, INFO, WARN, ERROR, FATAL, PANIC
+InsecureSkipVerify = true
+defaultEntryPoints = ["https", "http"]
+
+# WEB interface of Traefik - it will show web page with overview of frontend and backend configurations
 [api]
-insecure = true
+  entryPoint = "traefik"
+  dashboard = true
+  address = ":8080"
 
-[log]
-level = "DEBUG"
+# Force HTTPS
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
 
-[accessLog]
+[file]
+  watch = true
+  filename = "/etc/traefik/rules.toml"
 
-[providers]
-  [providers.docker]
-    exposedByDefault = false
+[acme]
+email = "seregapax@gmail.com" #any email id will work
+storage="/etc/traefik/acme/acme.json"
+entryPoint = "https"
+acmeLogging=true
+onDemand = false
+[acme.dnsChallenge]
+  provider = "cloudflare"
+  delayBeforeCheck = 300
+[[acme.domains]]
+   main = "rezhduma.live"
+[[acme.domains]]
+   main = "*.rezhduma.live"
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "rezhduma.live"
+watch = true
+exposedbydefault = false
