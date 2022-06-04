@@ -1,0 +1,27 @@
+.sidebar {
+    height: 500px;
+    width: 180px;
+    background-color: #fcffff;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.sidebar-item-icon {
+    font-weight: 300;
+    margin-right: 5px;
+}
+
+.sidebar-item-icon:hover{
+  cursor: pointer;
+}
+
+.sidebar-item {
+    display: flex;
+    margin: 15px 0;
+    margin-left: -15px;
+}
+
+.sideber-item-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

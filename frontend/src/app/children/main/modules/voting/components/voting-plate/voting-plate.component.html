@@ -1,0 +1,10 @@
+<div class="voting">
+    <h2 class="voting-title">{{ model.title }}</h2>
+    <span class="voting-text">{{ model.text }}</span>
+    <div class="voting-block-bottom">
+        <span class="voting-date"
+            >Срок проведения с:<br />{{ model.createdAt | date: "short" }}</span
+        >
+        <button class="voting-btn">Открыть</button>
+    </div>
+</div>

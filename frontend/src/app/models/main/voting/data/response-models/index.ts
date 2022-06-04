@@ -1,0 +1,1 @@
+export * from './voting.response-model.interface';

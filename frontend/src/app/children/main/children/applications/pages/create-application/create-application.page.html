@@ -1,1 +1,92 @@
-dsf
+<div class="create-app-box">
+    <h2 class="create-app-title">Создание заявки</h2>
+    <form class="create-app-form">
+        <h4 class="subtitle-select subtitle-deputy-select">Место обращения*</h4>
+        <mat-form-field class="create-app-select-list" appearance="fill">
+            <mat-label>Депутат</mat-label>
+            <mat-select class="create-app-select-item" name="deputy">
+                <mat-option *ngFor="let deputy of deputys" [value]="deputy">
+                    {{ deputy }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="list-deputys">
+            <span class="list-deputys-item">Список депутатов</span>
+            <span class="list-deputys-item">Список комиссий</span>
+        </div>
+
+        <h4 class="subtitle-select subtitle-deputy-select">
+            Социальный статус
+        </h4>
+        <mat-form-field class="create-app-select-list" appearance="fill">
+            <mat-label>Ваш статус</mat-label>
+            <mat-select name="socialStatus">
+                <mat-option
+                    *ngFor="let socialStatus of socialStatusList"
+                    [value]="socialStatus"
+                >
+                    {{ socialStatus }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <h4 class="subtitle-select subtitle-deputy-select">
+            Льготная категория
+        </h4>
+        <mat-form-field class="create-app-select-list" appearance="fill">
+            <mat-label>Ваша категория</mat-label>
+            <mat-select name="preferential">
+                <mat-option
+                    *ngFor="let preferential of preferentialList"
+                    [value]="preferential"
+                >
+                    {{ preferential }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <h4 class="subtitle-select subtitle-deputy-select">Тема обращения*</h4>
+        <mat-form-field class="create-app-select-list" appearance="fill">
+            <mat-label>Выберите тему</mat-label>
+            <mat-select name="topic">
+                <mat-option *ngFor="let topic of topicList" [value]="topic">
+                    {{ topic }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- <h4 class="subtitle-select subtitle-deputy-select">Текст обращения*</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <textarea
+                class="application-text"
+                matInput
+                placeholder="Ввод..."
+            ></textarea>
+        </mat-form-field> -->
+
+        <div class="create-app-upload-file">
+            <span class="label-upload-file">Прикрепить файлы</span>
+            <span class="placeholder-upload-file"> Выбрать файл </span>
+
+            <input
+                type="file"
+                name="file-upload"
+                id="file-upload"
+                class="upload-box"
+                placeholder="Выбрать файл"
+                multiple
+            />
+        </div>
+
+        <section class="terms-of-use">
+            <input id="terms-of-use-checkbox" type="checkbox"/>
+            <label for="terms-of-use-checkbox">Я согласен с условиями пользовательского
+                соглашения</label>
+        </section>
+
+        <div class="submit-create-app-form">
+            <button type="submit" mat-flat-button color="accent">Отправить заявку</button>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { VotingModule } from '../../modules/voting/voting.module';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 const components: any[] = [
     VotingPage
@@ -24,10 +28,12 @@ const routes: Routes = [
         CommonModule,
         BreadcrumbModule,
         RouterModule.forChild(routes),
+        MatIconModule,
+        MatMenuModule,
+        MatSelectModule,
+        VotingModule,
     ],
     declarations: components,
-    exports: [
-        RouterModule
-    ]
+    exports: [RouterModule],
 })
 export class VotingRoutingModule {}

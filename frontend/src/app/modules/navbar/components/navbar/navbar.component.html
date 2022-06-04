@@ -1,27 +1,30 @@
-<p>
-  <mat-toolbar [ngClass]="{ 'no-back': location == 'footer' }">
-    <span (click)="gotoPage(homePage.main)" class="header-name"
-    [ngClass]="{ white: location === 'footer', green: location === 'header' }">
-        Реж
-        <br/>
-        дума
-        </span
-    >
-    <nav>
-      <ul class="main-menu">
-        <li (click)="gotoPage(homePage.main)">
-          <span class="nav-link-page" href="#">Главная</span>
-        </li>
-        <li><span class="nav-link-page" href="#">Заявки</span></li>
-        <li><span class="nav-link-page" href="#">Аналитика</span></li>
-        <li><span class="nav-link-page" href="#">Голосования</span></li>
-        <li>
-          <span class="nav-link-page" href="#">Часто задаваемые вопросы</span>
-        </li>
-      </ul>
-    </nav>
+<div>
+    <div class="header-box" [ngClass]="{ 'no-back': location == 'footer' }">
+        <div
+            (click)="gotoPage('')"
+            class="header-name"
+            [ngClass]="{
+                white: location === 'footer',
+                green: location === 'header'
+            }"
+        >Реж Дума</div>
+        <!-- <nav>
+            <ul class="main-menu">
+                <li (click)="gotoPage(homePage.main)">
+                    <span class="nav-link-page" href="#">Главная</span>
+                </li>
+                <li><span class="nav-link-page" href="#">Заявки</span></li>
+                <li><span class="nav-link-page" href="#">Аналитика</span></li>
+                <li><span class="nav-link-page" href="#">Голосования</span></li>
+                <li>
+                    <span class="nav-link-page" href="#"
+                        >Часто задаваемые вопросы</span
+                    >
+                </li>
+            </ul>
+        </nav> -->
 
-    <!-- <div *ngIf="currPage.name == homePage.signIn" class="btn-registry-box">
+        <!-- <div *ngIf="currPage.name == homePage.signIn" class="btn-registry-box">
       <button (click)="gotoPage(homePage.signUp)" class="registry">
         Регистрация
       </button>
@@ -42,30 +45,33 @@
       </button>
     </div> -->
 
-    <div *ngIf="isLogged" class="logged-panel">
-      <button mat-flat-button class="new-application-btn">
-        Создать заявку
-      </button>
-    </div>
+        <!-- <div *ngIf="isLogged" class="logged-panel">
+            <button mat-flat-button class="new-application-btn">
+                Создать заявку
+            </button>
+        </div> -->
 
-    <div *ngIf="isLogged">
-      <div [matMenuTriggerFor]="userMenu" class="user-profile">
-        <mat-icon class="u-icon user-icon">person_outline</mat-icon>
-        <mat-icon class="u-icon user-arrow">expand_more</mat-icon>
-      </div>
-      <mat-menu #userMenu="matMenu" xPosition="before" class="user-menu">
-        <div mat-menu-item class="user-menu-account">
-          <mat-icon class="u-icon user-icon user-icon--big">person_outline</mat-icon>
-          <div class="user-menu-fullname">
-            <span class="user-menu-name">Максим</span>
-            <span class="user-menu-lastname">Алёшин</span>
-          </div>
-        </div>
-        <button mat-menu-item>Личные данные</button>
-        <button mat-menu-item>Мои заявки</button>
-        <button mat-menu-item>Мои голосования</button>
-        <button mat-menu-item>Выйти</button>
-      </mat-menu>
+        <!-- <div *ngIf="isLogged">
+            <div [matMenuTriggerFor]="userMenu" class="user-profile">
+                <mat-icon class="u-icon user-icon">person_outline</mat-icon>
+                <mat-icon class="u-icon user-arrow">expand_more</mat-icon>
+            </div>
+            <mat-menu #userMenu="matMenu" xPosition="before" class="user-menu">
+                <div mat-menu-item class="user-menu-account">
+                    <mat-icon class="u-icon user-icon user-icon--big"
+                        >person_outline</mat-icon
+                    >
+                    <div class="user-menu-fullname">
+                        <span class="user-menu-name">Максим</span>
+                        <span class="user-menu-lastname">Алёшин</span>
+                    </div>
+                </div>
+                <button mat-menu-item>Личные данные</button>
+                <button mat-menu-item>Мои заявки</button>
+                <button mat-menu-item>Мои голосования</button>
+                <button mat-menu-item>Выйти</button>
+            </mat-menu>
+        </div> -->
     </div>
-  </mat-toolbar>
-</p>
+    <hr class="header-bottom"/>
+</div>

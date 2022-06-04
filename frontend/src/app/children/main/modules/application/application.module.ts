@@ -4,24 +4,29 @@ import { NgModule } from '@angular/core';
 import { ApplicationPlateListComponent } from './components/application-plate-list/application-plate-list.component';
 import { ApplicationPlateComponent } from './components/application-plate/application-plate.component';
 import { ApplicationsRequestsService } from './services/applications.request-service';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+// import { TuiTextAreaModule } from '@taiga-ui/kit';
+import { TagsModule } from '../../../../modules/tags/tags.module';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components: any = [
     ApplicationPlateComponent,
-    ApplicationPlateListComponent
+    ApplicationPlateListComponent,
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        HttpClientModule
+        HttpClientModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        TagsModule,
     ],
     declarations: components,
     exports: components,
-    providers: [
-        ApplicationsRequestsService
-    ]
+    providers: [ApplicationsRequestsService],
 })
-export class ApplicationModule {
-
-}
+export class ApplicationModule {}

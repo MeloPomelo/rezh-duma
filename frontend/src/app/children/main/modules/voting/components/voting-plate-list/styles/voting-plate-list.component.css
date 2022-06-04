@@ -1,0 +1,6 @@
+.voting-plate-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0px 20px;
+}
