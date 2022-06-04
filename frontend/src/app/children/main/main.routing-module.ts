@@ -9,6 +9,7 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
 import { MainPage } from './pages/main/main.page';
 import { VotingRoutingModule } from './children/voting/voting.routing-module';
 import { ApplicationsRoutingModule } from './children/applications/applications.routing-module';
+
 import { FaqRoutingModule } from './children/faq/faq.routing-module';
 
 import { MainDomainsModule } from './modules/main-domains/main-domains.module';
@@ -20,6 +21,7 @@ import { MainLayoutPage } from './pages/main-layout/main-layout.page';
 
 
 const components: any[] = [MainPage, MainLayoutPage];
+
 
 const routes: Routes = [
     {
