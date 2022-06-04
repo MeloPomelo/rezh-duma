@@ -25,7 +25,7 @@ services:
       - 8000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`api.${DOMAIN}`)"
+      - "traefik.http.routers.api.rule=Host(`${DOMAIN}`)"
     depends_on:
       - db
       - traefik
@@ -36,7 +36,7 @@ services:
       dockerfile: prod.DockerFile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.angular.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.angular.rule=Host(`front.${DOMAIN}`)"
     depends_on:
       - backend
   pgadmin:
