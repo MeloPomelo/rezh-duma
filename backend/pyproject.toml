@@ -6,11 +6,15 @@ authors = ["sdorokhov <seregapax@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-fastapi = "^0.75.2"
+fastapi = "^0.78.0"
 uvicorn = "^0.17.6"
+databases = "^0.5.5"
+alembic = "^1.7.7"
+psycopg2-binary = "^2.9.3"
+asyncpg = "^0.25.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1.2"
 
 [tool.poetry.scripts]
 main = "main:main"
