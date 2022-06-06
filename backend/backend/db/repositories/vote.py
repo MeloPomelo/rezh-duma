@@ -39,6 +39,8 @@ class VoteRepository(BaseDomainRepository):
 
     async def _get_template(self, id_: int) -> dict | None:
         template = await self.mongo[MONGO_DB][self.template_collection].find_one({"id": id_})
+        print(1, template)
+
         return template or None
 
     async def select(self, vote: VoteInSelect, limit: int = STANDARD_DATA_LIMIT,
@@ -49,7 +51,8 @@ class VoteRepository(BaseDomainRepository):
         votes = await self.database.fetch_all(query=query_with_restrictions)
         total = await self.database.execute(query_for_total)
         if vote.id and total:
-            votes = [VoteInResponse(**vote_, template=self._get_template(vote.id)) for vote_ in votes]
+            print(votes)
+            votes = [VoteInResponse(**vote_, template=await self._get_template(vote.id)) for vote_ in votes]
         else:
             votes = [VoteInResponse(**vote_, template=None) for vote_ in votes]
 
@@ -62,6 +65,6 @@ class VoteRepository(BaseDomainRepository):
 
     async def vote(self, form: FormInCreate) -> FormInDB:
         form_in_db = {**form.dict(), **self._get_date()}
-        await self.mongo[MONGO_DB][self.template_collection].insert_one(form_in_db)
+        await self.mongo[MONGO_DB][self.vote_collection].insert_one(form_in_db)
 
         return FormInDB(**form_in_db)
