@@ -16,9 +16,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 api_routes = ((routes.applications_router, "applications"),
-              (routes.faq_router, "faqs"))
+              (routes.faq_router, "faqs"), (routes.votes_router, "votes"))
 
 for router, tag in api_routes:
     app.include_router(router, prefix=fr"/{tag}", tags=[tag])
