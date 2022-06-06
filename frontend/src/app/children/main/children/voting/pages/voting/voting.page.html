@@ -1,17 +1,16 @@
-<div class="voting">
-  <h2 class="voting-title">Транспорт</h2>
-  <span class="voting-text"
-    >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste velit
-    perferendis deserunt perspiciatis doloribus? Dolores dignissimos ipsum
-    provident, ipsa labore hic facilis consectetur! Reprehenderit, soluta!
-    Libero, expedita exercitationem explicabo magni deserunt tenetur doloremque
-    architecto suscipit cupiditate temporibus nobis. Necessitatibus,
-    minus!</span
-  >
-  <div class="voting-block-bottom">
-    <span class="voting-deadline"
-      >Срок проведения:<br />с 25.25.2022 по 25.25.2023</span
-    >
-    <button class="voting-btn">Открыть</button>
-  </div>
+<div class="">
+    <div class="voting-box">
+        <h2 class="voting-title">Голосования</h2>
+        <!-- <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Поиск</mat-label>
+                <input matInput placeholder="Ярмарка" value="SearchVoting" />
+            </mat-form-field>
+        </div> -->
+        <app-voting-plate-list class="voting-list"></app-voting-plate-list>
+        <div class="voting-lazy-load">
+            <span class="lazy-load-content">Загрузить ещё</span>
+            <mat-icon class="lazy-load-icon">south</mat-icon>
+        </div>
+    </div>
 </div>

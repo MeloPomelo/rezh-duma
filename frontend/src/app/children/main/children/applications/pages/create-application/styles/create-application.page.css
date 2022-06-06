@@ -1,35 +1,104 @@
-.applications {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-}
-.applications app-application-plate {
-  width: calc((100% / 3) - 30px);
-  margin-bottom: 20px;
+.subtitle-select {
+    color: #151515;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 }
 
-.applications-lazy-load {
-  margin: 25px auto;
-  width: max-content;
-  display: flex;
-  align-items: center;
+/* .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 7px !important;
+} */
+
+.create-app-title {
+    margin-left: 40px;
+    padding-top: 20px;
+    margin-bottom: 30px;
 }
 
-.lasts-applications-lazy-load:hover {
+.create-app-form {
+    margin-left: 40px;
+}
+
+.application-text {
+    height: 200px;
+    width: 60rem;
+}
+
+.create-app-upload-file {
+    position: relative;
+    /* width: 150px; */
+    text-align: center;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.placeholder-upload-file {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    width: 170px;
+    background: inherit;
+    border: 1px solid #6fb3b8;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #6fb3b8;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#file-upload {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.label-upload-file,
+.placeholder-upload-file {
+    display: block;
+    align-self: baseline;
+    margin-right: 70px;
+}
+
+.terms-of-use label {
+    margin-left: 15px;
+}
+
+.submit-create-app-form button {
+    color: #151515;
+    background-color: #c2edce;
+    border: 1px #151515 solid;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+}
+
+.submit-create-app-form {
+    margin-top: 25px;
+}
+
+.list-deputys {
+    display: inline;
+    margin-left: 70px;
+}
+
+.list-deputys-item {
+  margin-right: 50px;
+  text-decoration: underline;
+}
+
+.list-deputys-item:hover {
   cursor: pointer;
 }
 
-applications {
-  margin: 0;
-  padding: 0;
-}
-
-.applications-title {
-  font-family: Manrope;
-  font-size: 32px;
-  font-weight: 500;
-  margin-bottom: 30px;
-  width: 100%;
+.submit-create-app-form {
+  padding-bottom: 40px;
 }

@@ -5,7 +5,7 @@ export class BaseDomainPlateViewModel {
     public text: string;
     public createdAt: Date;
 
-    constructor (model: BaseDomainModel) {
+    constructor(model: BaseDomainModel) {
         this.title = model.title;
         this.text = model.text;
         this.createdAt = model.createdAt;

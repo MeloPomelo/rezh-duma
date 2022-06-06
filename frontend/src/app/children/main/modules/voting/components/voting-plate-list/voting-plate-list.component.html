@@ -1,0 +1,10 @@
+<app-tags></app-tags>
+<div class="voting-plate-list" *ngIf="modelSubject$ | async as modelList; else skeleton">
+    <app-voting-plate *ngFor="let item of modelList" [model]="item">
+
+    </app-voting-plate>
+</div>
+
+<ng-template #skeleton>
+    скелетон
+</ng-template>

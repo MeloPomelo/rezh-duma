@@ -52,3 +52,7 @@ class BaseDomainRepository(BaseRepository):
         data['created_at'] = datetime.now(timezone.utc)
         data.pop('id', None)
         return data
+
+    @staticmethod
+    def _get_date():
+        return {"created_at": datetime.now(timezone.utc)}

@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
-const components: any = [
+const components: any = [];
 
-];
+const modules: any = [MatInputModule, MatIconModule];
 
 @NgModule({
-    imports: [
-        CommonModule,
-    ],
+    imports: [CommonModule],
     declarations: components,
-    exports: components
+    exports: modules,
 })
-export class VotingModule {
-
-}
+export class MainDomainsModule {}

@@ -1,0 +1,10 @@
+{
+  "/api": {
+      "target": "http://rezhduma.live/",
+      "secure": false,
+      "pathRewrite": {
+          "^/api": ""
+      },
+      "changeOrigin": true
+  }
+}

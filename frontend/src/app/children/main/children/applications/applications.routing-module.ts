@@ -2,11 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+
 import { ApplicationModule } from './../../modules/application/application.module';
 import { ApplicationsPage } from './pages/applications/applications.page';
 import { CreateApplicationPage } from './pages/create-application/create-application.page';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components: any[] = [
     ApplicationsPage,
@@ -35,11 +41,15 @@ const routes: Routes = [
         BreadcrumbModule,
         MatIconModule,
         RouterModule.forChild(routes),
-        ApplicationModule
+        ApplicationModule,
+        MatMenuModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     declarations: components,
-    exports: [
-        RouterModule
-    ]
+    exports: [RouterModule],
 })
 export class ApplicationsRoutingModule {}

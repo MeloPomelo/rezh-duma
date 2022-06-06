@@ -5,31 +5,37 @@
   justify-content: space-between;
   align-content: space-between;
 }
-.applications app-application-plate {
-  width: calc((100% / 3) - 30px);
-  margin-bottom: 20px;
-}
+
+/* app-application-plate {
+    width: calc((100% / 3) - 30px);
+    margin-bottom: 30px;
+    margin-right: 20px;
+    display: inline-flex;
+} */
 
 .applications-lazy-load {
   margin: 25px auto;
   width: max-content;
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .lasts-applications-lazy-load:hover {
   cursor: pointer;
 }
 
-applications {
+.applications {
   margin: 0;
-  padding: 0;
+  padding: 0px 20px;
 }
 
 .applications-title {
-  font-family: Manrope;
-  font-size: 32px;
-  font-weight: 500;
-  margin-bottom: 30px;
-  width: 100%;
+    font-family: Manrope;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    width: 100%;
+    margin-left: 50px;
+    padding-top: 20px;
 }
