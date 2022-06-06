@@ -39,7 +39,6 @@ class VoteRepository(BaseDomainRepository):
 
     async def _get_template(self, id_: int) -> dict | None:
         template = await self.mongo[MONGO_DB][self.template_collection].find_one({"id": id_})
-        print(1, template)
 
         return template or None
 
@@ -51,7 +50,6 @@ class VoteRepository(BaseDomainRepository):
         votes = await self.database.fetch_all(query=query_with_restrictions)
         total = await self.database.execute(query_for_total)
         if vote.id and total:
-            print(votes)
             votes = [VoteInResponse(**vote_, template=await self._get_template(vote.id)) for vote_ in votes]
         else:
             votes = [VoteInResponse(**vote_, template=None) for vote_ in votes]
