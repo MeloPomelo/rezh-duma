@@ -8,6 +8,7 @@ import { FooterModule } from '../../modules/footer/footer.module';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { MainPage } from './pages/main/main.page';
 import { VotingRoutingModule } from './children/voting/voting.routing-module';
+import { UserProfileRoutingModule } from './children/user-profile/user-profile.routing-module';
 import { ApplicationsRoutingModule } from './children/applications/applications.routing-module';
 
 import { FaqRoutingModule } from './children/faq/faq.routing-module';
@@ -19,9 +20,7 @@ import { MainLayoutPage } from './pages/main-layout/main-layout.page';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatIconModule } from '@angular/material/icon';
 
-
 const components: any[] = [MainPage, MainLayoutPage];
-
 
 const routes: Routes = [
     {
@@ -47,8 +46,7 @@ const routes: Routes = [
                     breadcrumb: { label: 'Заявки', title: 'Заявки' },
                 },
                 loadChildren: (): Promise<ApplicationsRoutingModule> =>
-                    import(
-                        './children/applications/applications.routing-module'
+                    import('./children/applications/applications.routing-module'
                     ).then((m: any) => m.ApplicationsRoutingModule),
             },
             {
@@ -73,10 +71,21 @@ const routes: Routes = [
                         (m: any) => m.FaqRoutingModule
                     ),
             },
+            {
+                path: 'user-profile',
+                data: {
+                    title: 'Личные данные',
+                    breadcrumb: {
+                        label: 'Личные данные',
+                        title: 'Личные данные',
+                    },
+                },
+                loadChildren: (): Promise<UserProfileRoutingModule> =>
+                    import('./children/user-profile/user-profile.routing-module').then((m: any) => m.UserProfileRoutingModule),
+            },
         ],
     },
 ];
-
 
 @NgModule({
     imports: [
@@ -90,6 +99,7 @@ const routes: Routes = [
         FormsModule,
         MatButtonModule,
         TagsModule,
+        UserProfileRoutingModule,
     ],
     declarations: components,
     exports: [RouterModule],

@@ -38,6 +38,9 @@ body {
     width: 340px !important;
 }
 
+.user-profile-data-item .mat-form-field-infix {
+    width: 200px !important;
+}
 .mat-form-field-appearance-fill .mat-form-field-ripple {
     bottom: 0 !important;
     height: 2px !important;
@@ -215,4 +218,25 @@ app-voting-plate {
 
 .mat-select-arrow {
     color: rgb(15 15 15 / 50%);
+}
+
+.faq-search .mat-form-field-flex,
+.user-profile-data-item .mat-form-field-flex {
+    border-radius: 10px 10px !important;
+    padding: .75em .75em 0 .75em;
+}
+
+.faq-search .mat-form-field-underline,
+.user-profile-data-item .mat-form-field-underline {
+    opacity: 0;
+}
+
+.faq-search .mat-form-field-infix,
+.user-profile-data-item .mat-form-field-infix
+{
+    padding: 0.25em 0.25em;
+}
+
+.app-text .mat-form-field-infix {
+    width: 800px !important;
 }

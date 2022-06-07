@@ -1,0 +1,95 @@
+.user-profile-title {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* .user-profile-photo {
+
+} */
+
+.user-profile-content {
+    display: flex;
+    margin-top: 40px;
+}
+
+.user-profile-password {
+    display: flex;
+}
+.user-profile-data-item input::placeholder {
+    color: rgb(15 15 15 / 50%);
+}
+
+.user-profile-data-item {
+    margin-right: 30px;
+}
+
+.user-profile-data {
+    /* padding: 5px; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+
+.user-contacts {
+    display: flex;
+}
+
+.user-fullname {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.user-profile-address {
+    display: flex;
+}
+.change-password {
+    border: 1px solid #6fb3b8;
+    color: #6fb3b8;
+    border-radius: 10px;
+    height: 55px;
+}
+
+.user-data-save {
+    border: 1px solid rgb(15 15 15 / 50%);
+    background-color: #c2edce;
+    color: #151515;
+    border-radius: 10px;
+    height: 40px;
+    padding: 0px 30px;
+    margin-top: 30px;
+}
+
+.user-data-save-box {
+    /* display: flex; */
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.title-contacts,
+.title-password,
+.title-fullname,
+.title-address {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.user-photo-box {
+    border-radius: 50%;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    padding-top: 100%;
+    border: 1px solid rgb(15 15 15 / 30%);
+    position: relative;
+    width: 100px;
+}
+
+.user-photo-example {
+    font-size: 100pt;
+    color: #aad576;
+}

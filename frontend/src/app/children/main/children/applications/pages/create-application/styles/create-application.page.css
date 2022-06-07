@@ -11,14 +11,11 @@
 } */
 
 .create-app-title {
-    margin-left: 40px;
     padding-top: 20px;
     margin-bottom: 30px;
 }
 
-.create-app-form {
-    margin-left: 40px;
-}
+
 
 .application-text {
     height: 200px;

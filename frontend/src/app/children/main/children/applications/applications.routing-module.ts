@@ -9,29 +9,52 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { ApplicationModule } from './../../modules/application/application.module';
 import { ApplicationsPage } from './pages/applications/applications.page';
+import { ApplicationDetailPage } from './pages/application-detail/application-detail.page';
+
 import { CreateApplicationPage } from './pages/create-application/create-application.page';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
+
 const components: any[] = [
     ApplicationsPage,
-    CreateApplicationPage
+    CreateApplicationPage,
+    ApplicationDetailPage,
 ];
 
 const routes: Routes = [
     {
         path: '',
         component: ApplicationsPage,
-        data: { title: 'Заявки', breadcrumb: { label: 'Заявки', title: 'Заявки' } },
-        pathMatch: 'full'
+        data: {
+            title: 'Заявки',
+            breadcrumb: { label: 'Заявки', title: 'Заявки' },
+        },
+        pathMatch: 'full',
     },
     {
         path: 'create',
         component: CreateApplicationPage,
-        data: { title: 'Создание заявки', breadcrumb: { label: 'Создание заявки', title: 'Создание заявки' } },
-        pathMatch: 'full'
-    }
+        data: {
+            title: 'Создание заявки',
+            breadcrumb: { label: 'Создание заявки', title: 'Создание заявки' },
+        },
+        pathMatch: 'full',
+    },
+    {
+        path: 'detail',
+        component: ApplicationDetailPage,
+        data: {
+            title: 'Дороги',
+            breadcrumb: { label: 'Дороги', title: 'Дороги' },
+        },
+        pathMatch: 'full',
+    },
 ];
 
 
@@ -48,6 +71,8 @@ const routes: Routes = [
         MatCheckboxModule,
         FormsModule,
         ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
     ],
     declarations: components,
     exports: [RouterModule],

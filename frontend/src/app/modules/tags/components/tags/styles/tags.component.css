@@ -29,7 +29,7 @@
 
 .tag-list {
     display: flex;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: center;

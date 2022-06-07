@@ -1,0 +1,122 @@
+<div class="user-profile">
+    <span class="user-profile-title">Личные данные</span>
+    <div class="user-profile-content">
+        <div class="user-profile-photo">
+            <!-- <div class="user-photo-box"></div> -->
+            <span class="material-icons user-photo-example">account_circle</span>
+        </div>
+
+        <div class="user-profile-data">
+            <span class="title-fullname">Введите ваше имя</span>
+            <div class="user-fullname">
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-name"
+                    appearance="fill"
+                >
+                    <mat-label>Имя*</mat-label>
+                    <input matInput type="text" placeholder="Петр" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-surname"
+                    appearance="fill"
+                >
+                    <mat-label>Фамилия*</mat-label>
+                    <input matInput type="text" placeholder="Петров" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-patron"
+                    appearance="fill"
+                >
+                    <mat-label>Отчество</mat-label>
+                    <input matInput type="text" placeholder="Петрович" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+            </div>
+
+            <span class="title-contacts">Введите контактные данные</span>
+            <div class="user-contacts">
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-patron"
+                    appearance="fill"
+                >
+                    <mat-label>Электронная почта*</mat-label>
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="rezh-duma@urfu.ru"
+                    />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-patron"
+                    appearance="fill"
+                >
+                    <mat-label>Телефон*</mat-label>
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="8-(800)-555-3-55"
+                    />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+            </div>
+
+            <span class="title-password">Поменять пароль</span>
+            <div class="user-profile-password">
+                <mat-form-field
+                    class="example-form-field user-profile-data-item new-password"
+                    appearance="fill"
+                >
+                    <mat-label>Новый пароль</mat-label>
+                    <input matInput type="text" placeholder="aIKz_R21rw" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <button mat-stroked-button class="change-password">
+                    Изменить пароль
+                </button>
+            </div>
+
+            <span class="title-address">Место жительства</span>
+            <div class="user-profile-address">
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-city"
+                    appearance="fill"
+                >
+                    <mat-label>Город*</mat-label>
+                    <input matInput type="text" placeholder="Реж" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-street"
+                    appearance="fill"
+                >
+                    <mat-label>Улица</mat-label>
+                    <input matInput type="text" placeholder="Ленина" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="example-form-field user-profile-data-item user-numb-house"
+                    appearance="fill"
+                >
+                    <mat-label>Дом</mat-label>
+                    <input matInput type="text" placeholder="7" />
+                    <mat-icon matSuffix></mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="user-data-save-box">
+                <button mat-raised-button class="user-data-save">
+                    Сохранить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

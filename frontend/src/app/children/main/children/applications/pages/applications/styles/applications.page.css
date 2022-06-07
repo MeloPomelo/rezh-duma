@@ -27,7 +27,7 @@
 
 .applications {
   margin: 0;
-  padding: 0px 20px;
+  padding: 0;
 }
 
 .applications-title {
@@ -36,6 +36,5 @@
     font-weight: 500;
     margin-bottom: 30px;
     width: 100%;
-    margin-left: 50px;
     padding-top: 20px;
 }

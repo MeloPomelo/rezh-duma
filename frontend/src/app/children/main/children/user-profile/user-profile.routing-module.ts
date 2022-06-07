@@ -1,28 +1,25 @@
-import { FaqPage } from './pages/faq/faq.page';
+import { UserProfilePage } from './pages/user-profile/user-profile.page';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { FaqModule } from '../../modules/faq/faq.module';
+import { UserProfileModule } from '../../modules/user-profile/user-profile.module';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
-const components: any[] = [FaqPage];
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+const components: any[] = [UserProfilePage];
 
 const routes: Routes = [
     {
         path: '',
-        component: FaqPage,
+        component: UserProfilePage,
         data: {
-            title: 'Часто задаваемые вопросы',
-            breadcrumb: {
-                label: 'Часто задаваемые вопросы',
-                title: 'Часто задаваемые вопросы',
-            },
+            title: 'Личные данные',
+            breadcrumb: { label: 'Личные данные', title: 'Личные данные' },
         },
         pathMatch: 'full',
     },
@@ -36,11 +33,12 @@ const routes: Routes = [
         MatIconModule,
         MatMenuModule,
         MatSelectModule,
-        FaqModule,
-        MatFormFieldModule,
+        UserProfileModule,
         MatInputModule,
+        MatFormFieldModule,
+        MatButtonModule,
     ],
     declarations: components,
     exports: [RouterModule],
 })
-export class FaqRoutingModule {}
+export class UserProfileRoutingModule {}

@@ -24,7 +24,8 @@ export class SidebarComponent {
     public applicationPage: string = 'applications';
     public votingPage: string = 'voting';
     public createPage: string = 'applications/create';
-    public faqPage: string = 'applications/faq';
+    public faqPage: string = 'faq';
+    public userProfile: string = 'user-profile';
     constructor(
         private _route: ActivatedRoute,
         private _router: Router // public authS: AuthService

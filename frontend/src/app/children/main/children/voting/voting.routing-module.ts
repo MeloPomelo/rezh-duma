@@ -9,19 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 
-const components: any[] = [
-    VotingPage
-];
+const components: any[] = [VotingPage];
 
 const routes: Routes = [
     {
         path: '',
         component: VotingPage,
-        data: { title: 'Голосования', breadcrumb: { label: 'Голосования', title: 'Голосования' } },
-        pathMatch: 'full'
-    }
+        data: {
+            title: 'Голосования',
+            breadcrumb: { label: 'Голосования', title: 'Голосования' },
+        },
+        pathMatch: 'full',
+    },
 ];
-
 
 @NgModule({
     imports: [
