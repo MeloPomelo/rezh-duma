@@ -109,7 +109,7 @@ body {
     margin-top: 0;
     margin-bottom: 30px;
 }
-/* 
+/*
 .container {
   width: calc(100% - 200px);
 } */
@@ -175,7 +175,6 @@ li {
 }
 
 app-application-plate {
-    width: calc(100% / 3);
     /* flex-grow: 1;
     flex-basis: 270px; */
     box-sizing: border-box;
@@ -186,7 +185,6 @@ app-application-plate {
 }
 
 app-voting-plate {
-    width: calc(100% / 3);
     box-sizing: border-box;
     padding: 15px;
 }
@@ -213,7 +211,7 @@ app-voting-plate {
 }
 /* .create-app-select-list .mat-form-field-flex {
     /* border-radius: 4px 4px 0px 0px; */
-/* padding: 2px 2px 0 0 !important; 
+/* padding: 2px 2px 0 0 !important;
 }*/
 
 .mat-select-arrow {

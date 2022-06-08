@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { TuiDestroyService } from '@taiga-ui/cdk';
-import { ApplicationPlateViewModel } from '../../../../../../models';
+import { ApplicationModel, ApplicationPlateViewModel, IListOfModels } from '../../../../../../models';
 import { ApplicationsRequestsService } from '../../services/applications.request-service';
 
 @Component({
@@ -13,7 +13,9 @@ import { ApplicationsRequestsService } from '../../services/applications.request
 })
 export class ApplicationPlateListComponent {
 
+    public readonly count: number = 1;
     public modelSubject$: BehaviorSubject<ApplicationPlateViewModel[] | null> = new BehaviorSubject<ApplicationPlateViewModel[] | null>(null);
+    public hasMore: boolean = false;
 
     constructor(
         private _applicationsRequestsService: ApplicationsRequestsService,
@@ -23,10 +25,32 @@ export class ApplicationPlateListComponent {
     }
 
     public initModel(): void {
-        this._applicationsRequestsService.getItems({}, this._destroyService)
-            .subscribe((model: ApplicationPlateViewModel[]): void => {
-                this.modelSubject$.next(model);
+        this.loadData(0, this.count)
+            .subscribe((models: ApplicationPlateViewModel[]) => {
+                this.modelSubject$.next(models);
             });
+    }
+
+    public loadMore(): void {
+        const items: ApplicationPlateViewModel[] = this.modelSubject$.getValue() ?? [];
+        this.loadData(items.length, this.count)
+            .subscribe((models: ApplicationPlateViewModel[]) => {
+                this.modelSubject$.next(items.concat(models));
+            });
+    }
+
+    private loadData(offset: number, limit: number): Observable<ApplicationPlateViewModel[]> {
+        return this._applicationsRequestsService.getItems({
+            offset,
+            limit
+        }, this._destroyService)
+            .pipe(
+                map((model: IListOfModels<ApplicationModel>) => {
+                    this.hasMore = model.count + (this.modelSubject$.getValue() ?? []).length < model.total;
+
+                    return model.list.map((item: ApplicationModel) => new ApplicationPlateViewModel(item));
+                })
+            );
     }
 
 }

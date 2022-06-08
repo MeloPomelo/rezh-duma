@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TagsModule } from '../../../../modules/tags/tags.module';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 const components: any = [
     ApplicationPlateComponent,
@@ -20,6 +21,7 @@ const components: any = [
         CommonModule,
         HttpClientModule,
         MatFormFieldModule,
+        MatIconModule,
         FormsModule,
         ReactiveFormsModule,
         MatButtonModule,

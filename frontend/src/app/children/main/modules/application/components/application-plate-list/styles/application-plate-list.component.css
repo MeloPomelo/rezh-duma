@@ -2,4 +2,22 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    width: 100%;
 }
+
+app-application-plate {
+    width: 33.33%;
+}
+
+.applications-lazy-load {
+    margin: 25px auto;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+.lasts-applications-lazy-load:hover {
+cursor: pointer;
+}
+

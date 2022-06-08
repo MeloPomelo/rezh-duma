@@ -33,8 +33,11 @@ export class AppComponent implements OnInit {
         this._router
             .events.pipe(
                 filter((event: Event) => event instanceof NavigationEnd),
-                map(() => {
-                    const child: ActivatedRoute | null = this._route.firstChild;
+                map((event: Event) => {
+                    let child: ActivatedRoute | null = this._route.firstChild;
+                    while (child?.firstChild) {
+                        child = child.firstChild;
+                    }
                     if (child?.snapshot?.data['title']) {
                         return child?.snapshot?.data['title'];
                     }

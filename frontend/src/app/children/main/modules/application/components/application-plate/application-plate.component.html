@@ -1,9 +1,9 @@
-<div (click)="gotoPage(applicationDetailPage)" class="application">
+<div (click)="gotoPage(model.id)" class="application">
     <h2 class="application-title">{{ model.title }}</h2>
     <span class="application-text">{{ model.text }}</span>
     <div class="application-block-bottom">
         <span class="application-date"
-            >Дата создания:<br />{{ model.createdAt | date: "short" }}</span
+            >Дата создания:<br />{{ model.createdAt | date: 'dd.MM.yyyy' }}</span
         >
         <button class="application-btn">Открыть</button>
     </div>

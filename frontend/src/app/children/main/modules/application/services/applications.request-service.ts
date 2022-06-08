@@ -1,8 +1,9 @@
+import { map, takeUntil } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { ApplicationModel } from '../../../../../models';
-import { ApplicationsRequestModel } from '../../../../../models';
+import { ApplicationModel, IListOfModels } from '../../../../../models';
+import { IApplicationsRequestModel } from '../../../../../models';
 import { IApplicationsResponseModel } from '../../../../../models';
 
 
@@ -10,24 +11,41 @@ import { IApplicationsResponseModel } from '../../../../../models';
 export class ApplicationsRequestsService {
 
     public readonly url: string;
-    private _item: ApplicationModel;
 
     constructor(
         protected http: HttpClient
     ) {
-        this.url = '';
-        this._item = { title: 'Дороги', text: new Array(50).join('Hello '), createdAt: new Date(), id: '1' };
-
+        this.url = 'api/applications';
     }
 
-    public getItems(data: ApplicationsRequestModel, unsubscriber: Subject<void>): Observable<ApplicationModel[]>{
-        const models: ApplicationModel[] = Array.from({ length: 6 }).map((s: any) => Object.assign({}, this._item));
+    public getItems(data: IApplicationsRequestModel, unsubscriber: Subject<void>): Observable<IListOfModels<ApplicationModel>>{
+        const params: {[key: string]: string } = Object.fromEntries(Object.entries(data).map(([key, value]: [string, any]) => [key, value.toString()]));
 
-        return of(models);
+        return this.http.get<IListOfModels<IApplicationsResponseModel>>(this.url, { params })
+            .pipe(
+                map((model: IListOfModels<IApplicationsResponseModel>) => {
+                    return {
+                        total: model.total,
+                        count: model.count,
+                        list: model.list.map((item: IApplicationsResponseModel) => new ApplicationModel(item))
+                    };
+                }),
+                takeUntil(unsubscriber)
+            );
     }
 
-    public getItemById(id: string, unsubscriber: Subject<void>): Observable<ApplicationModel>{
-        return of(Object.assign({}, this._item));
+    public getItemById(id: string, unsubscriber: Subject<void>): Observable<ApplicationModel | null>{
+        return this.http.get<IListOfModels<IApplicationsResponseModel>>(this.url, { params: { id } })
+            .pipe(
+                map((model: IListOfModels<IApplicationsResponseModel>) => {
+                    if (model.list.length === 0) {
+                        return null;
+                    }
+
+                    return new ApplicationModel(model.list[0]);
+                }),
+                takeUntil(unsubscriber)
+            );
     }
 
     public createItem(unsubscriber: Subject<void>): Observable<ApplicationModel>{

@@ -1,7 +1,7 @@
 import { IBaseDomainResponseModel } from '../response-models';
 
 export class BaseDomainModel {
-    public id: string;
+    public id: number;
     public title: string;
     public text: string;
     public createdAt: Date;
@@ -10,7 +10,7 @@ export class BaseDomainModel {
         this.id = model.id;
         this.title = model.title;
         this.text = model.text;
-        this.createdAt = new Date(model.createdAt);
+        this.createdAt = new Date(model.created_at);
     }
 
 }

@@ -4,6 +4,10 @@
 
     </app-application-plate>
 </div>
+<div class="applications-lazy-load" *ngIf="hasMore" (click)="loadMore()">
+    <span class="lazy-load-content">Загрузить ещё</span>
+    <mat-icon class="lazy-load-icon">south</mat-icon>
+</div>
 
 <ng-template #skeleton>
     скелетон

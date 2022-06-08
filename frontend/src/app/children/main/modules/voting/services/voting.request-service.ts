@@ -16,7 +16,7 @@ export class VotingRequestsService {
         protected http: HttpClient
     ) {
         this.url = '';
-        this._item = { title: 'Дороги', text: new Array(50).join('Hello '), createdAt: new Date(), id: '1' };
+        this._item = { title: 'Дороги', text: new Array(50).join('Hello '), createdAt: new Date(), id: 1 };
 
     }
 

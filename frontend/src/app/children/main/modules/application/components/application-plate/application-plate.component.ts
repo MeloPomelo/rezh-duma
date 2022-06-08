@@ -11,15 +11,14 @@ export class ApplicationPlateComponent {
     @Input()
     public model!: ApplicationPlateViewModel;
 
-    public applicationDetailPage: string = 'detail';
 
     constructor(
         private _router: Router,
         private _activatedRoute: ActivatedRoute
     ) {}
 
-    public gotoPage(namePage: string): void {
-        this._router.navigate([`/applications/${namePage}`], {
+    public gotoPage(id: number): void {
+        this._router.navigate([`/applications/${id}`], {
             relativeTo: this._activatedRoute,
         });
     }

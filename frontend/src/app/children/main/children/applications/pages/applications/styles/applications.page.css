@@ -13,17 +13,6 @@
     display: inline-flex;
 } */
 
-.applications-lazy-load {
-  margin: 25px auto;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
-.lasts-applications-lazy-load:hover {
-  cursor: pointer;
-}
 
 .applications {
   margin: 0;

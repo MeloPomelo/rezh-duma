@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export interface IBaseDomainResponseModel {
-    id: string;
+    id: number;
     title: string;
     text: string;
-    createdAt: string;
+    created_at: string;
 }

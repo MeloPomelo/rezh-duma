@@ -20,7 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  
+
 
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
@@ -51,11 +51,11 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'detail',
+        path: ':id',
         component: ApplicationDetailPage,
         data: {
-            title: 'Дороги',
-            breadcrumb: { label: 'Дороги', title: 'Дороги' },
+            title: 'Заявка',
+            breadcrumb: { label: 'Заявка', title: 'Заявка', 'alias': 'application' },
         },
         pathMatch: 'full',
     },
