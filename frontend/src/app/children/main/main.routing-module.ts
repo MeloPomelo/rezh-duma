@@ -99,7 +99,6 @@ const routes: Routes = [
         FormsModule,
         MatButtonModule,
         TagsModule,
-        UserProfileRoutingModule,
     ],
     declarations: components,
     exports: [RouterModule],
