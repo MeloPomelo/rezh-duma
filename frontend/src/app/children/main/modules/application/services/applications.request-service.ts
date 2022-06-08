@@ -21,7 +21,7 @@ export class ApplicationsRequestsService {
     }
 
     public getItems(data: ApplicationsRequestModel, unsubscriber: Subject<void>): Observable<ApplicationModel[]>{
-        const models: ApplicationModel[] = Array.from({ length: 5 }).map((s: any) => Object.assign({}, this._item));
+        const models: ApplicationModel[] = Array.from({ length: 6 }).map((s: any) => Object.assign({}, this._item));
 
         return of(models);
     }

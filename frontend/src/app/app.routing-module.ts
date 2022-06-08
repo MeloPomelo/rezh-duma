@@ -7,7 +7,7 @@ import { AppComponent } from './components/app/app.component';
 import { TuiRootModule } from '@taiga-ui/core';
 import { MainRoutingModule } from './children/main/main.routing-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AuthRoutingModule } from './tmp/auth/auth.routing-module'
 
 
 const components: any[] = [
@@ -17,9 +17,25 @@ const components: any[] = [
 const routes: Routes = [
     {
         path: '',
-        data: { title : 'Главная' , breadcrumb: { label: 'Главная', title: 'Главная' } },
-        loadChildren: (): Promise<MainRoutingModule> => import('./children/main/main.routing-module')
-            .then((m: any) => m.MainRoutingModule),
+        data: {
+            title: 'Главная',
+            breadcrumb: { label: 'Главная', title: 'Главная' },
+        },
+        loadChildren: (): Promise<MainRoutingModule> =>
+            import('./children/main/main.routing-module').then(
+                (m: any) => m.MainRoutingModule
+            ),
+    },
+    {
+        path: 'auth',
+        data: {
+            title: 'Вход',
+            breadcrumb: { label: 'Вход', title: 'Вход' },
+        },
+        loadChildren: (): Promise<AuthRoutingModule> =>
+            import('./tmp/auth/auth.routing-module').then(
+                (m: any) => m.AuthRoutingModule
+            ),
     },
 ];
 

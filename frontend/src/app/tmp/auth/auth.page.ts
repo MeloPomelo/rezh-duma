@@ -1,15 +1,20 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { IPage } from '../app.component';
+// import { IPage } from '../app.component';
 import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
+
+interface IPage {
+    name: string;
+}
+
 @Component({
     selector: 'app-auth',
-    templateUrl: './auth.component.html',
-    styleUrls: ['./auth.component.css']
+    templateUrl: './auth.page.html',
+    styleUrls: ['./auth.page.css']
 })
 
-export class AuthComponent implements OnInit {
+export class AuthPage implements OnInit {
     @Output()
     public onNamePage: EventEmitter<string> = new EventEmitter<string>();
 

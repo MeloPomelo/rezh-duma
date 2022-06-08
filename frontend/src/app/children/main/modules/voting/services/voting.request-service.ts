@@ -21,7 +21,7 @@ export class VotingRequestsService {
     }
 
     public getItems(data: VotingRequestModel, unsubscriber: Subject<void>): Observable<VotingModel[]>{
-        const models: VotingModel[] = Array.from({ length: 5 }).map((s: any) => Object.assign({}, this._item));
+        const models: VotingModel[] = Array.from({ length: 6 }).map((s: any) => Object.assign({}, this._item));
 
         return of(models);
     }

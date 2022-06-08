@@ -15,8 +15,8 @@
     background-color: inherit;
     border: 1px solid rgb(15 15 15 / 50%);
     color: rgb(15 15 15 / 40%);
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 0px 5px;
+    border-radius: 10px !important;
 }
 
 .tag-item {

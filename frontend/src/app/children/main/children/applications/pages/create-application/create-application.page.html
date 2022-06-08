@@ -6,7 +6,7 @@
             <mat-label>Депутат</mat-label>
             <mat-select class="create-app-select-item" name="deputy">
                 <mat-option *ngFor="let deputy of deputys" [value]="deputy">
-                    {{ deputy }}
+                    {{ deputy.name }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -63,6 +63,19 @@
                 matInput
                 placeholder="Ввод..."
             ></textarea>
+        </mat-form-field>
+
+        <h4>drop-down</h4>
+        <mat-form-field>
+            <mat-select [formControl]="websiteCtrl" placeholder="Депутат" #singleSelect class="dropdown-item">
+                <mat-option>
+                    <ngx-mat-select-search [formControl]="websiteFilterCtrl"></ngx-mat-select-search>
+                </mat-option>
+  
+                <mat-option *ngFor="let website of filteredDeputys | async" [value]="">
+                    {{website.name}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
 
         <div class="create-app-upload-file">
