@@ -1,0 +1,144 @@
+<app-navbar></app-navbar>
+<div class="signup-form">
+    <form class="signup-box">
+        <h2 class="signup-title-form">Регистрация</h2>
+
+        <mat-form-field class="login-input-box" appearance="fill">
+            <mat-label>Введите адрес электронной почты</mat-label>
+            <input
+                type="email"
+                matInput
+               
+                placeholder="rezh@duma.ru"
+                #userEmail
+            />
+            <!-- <mat-error
+                *ngIf="loginFormControl.hasError('email') && !loginFormControl.hasError('required')"
+            >
+                Некорректный адрес эл. почты
+            </mat-error> -->
+            <!-- <mat-error *ngIf="loginFormControl.hasError('required')">
+                <span>Обязательное поле</span>
+            </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="pass-input-box" appearance="fill">
+            <mat-label>Придумайте пароль</mat-label>
+            <input
+                type="password"
+                matInput
+                placeholder="uKd13Ry"
+                #userPass
+            />
+            <!-- <mat-error *ngIf="passFormControl.hasError('required')">
+                <span>Обязательное поле</span>
+            </mat-error> -->
+        </mat-form-field>
+
+        <a class="deputy-registry">Я депутат</a>
+        <a (click)="gotoAuth()" class="to-auth">У меня уже есть аккаунт</a>
+
+        <button
+        
+            (click)="authService.SignUp(userEmail.value, userPass.value)"
+            type="submit"
+            class="btn-join"
+        >
+            Зарегистрироваться
+        </button>
+        <!-- <mat-stepper
+            orientation="vertical"
+            [linear]="isLinear"
+            #stepper
+            class="signup-box"
+        >
+            <mat-step [stepControl]="nameFormGroup">
+                <form [formGroup]="nameFormGroup">
+                    <ng-template matStepLabel>Как вас зовут?</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>ФИО</mat-label>
+                        <input
+                            matInput
+                            placeholder="Иванов Иван Иванович"
+                            formControlName="nameCtrl"
+                            required
+                            #userName
+                        />
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext class="btn-nav">
+                            Дальше
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="emailFormGroup">
+                <form [formGroup]="emailFormGroup">
+                    <ng-template matStepLabel
+                        >Адрес электронной почты</ng-template
+                    >
+                    <mat-form-field appearance="fill">
+                        <mat-label>Эл. почта</mat-label>
+                        <input
+                            matInput
+                            formControlName="emailCtrl"
+                            placeholder="rezh@duma.ru"
+                            required
+                            #userEmail
+                        />
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious class="btn-nav">
+                            Назад
+                        </button>
+                        <button mat-button matStepperNext class="btn-nav">
+                            Дальше
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="passFormGroup">
+                <form [formGroup]="passFormGroup">
+                    <ng-template matStepLabel>Придумайте пароль</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Пароль</mat-label>
+                        <input
+                            matInput
+                            formControlName="passCtrl"
+                            placeholder="uK32jdD2"
+                            required
+                            #userPass
+                        />
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious class="btn-nav">
+                            Назад
+                        </button>
+                        <button mat-button matStepperNext class="btn-nav">
+                            Дальше
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Последний шаг</ng-template>
+                <p>Проверьте правильность ваших данных</p>
+                <div>
+                    <button mat-button matStepperPrevious class="btn-nav">
+                        Назад
+                    </button>
+                    <button
+                        (click)="authService.SignUp(userEmail.value, userPass.value)"
+                        type="submit"
+                        class="btn-signup"
+                    >
+                        Зарегистрировать аккаунт
+                    </button>
+                </div>
+            </mat-step>
+        </mat-stepper> -->
+    </form>
+</div>

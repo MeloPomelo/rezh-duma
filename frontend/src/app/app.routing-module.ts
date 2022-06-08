@@ -7,8 +7,8 @@ import { AppComponent } from './components/app/app.component';
 import { TuiRootModule } from '@taiga-ui/core';
 import { MainRoutingModule } from './children/main/main.routing-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthRoutingModule } from './tmp/auth/auth.routing-module'
-
+import { AuthRoutingModule } from './tmp/auth/auth.routing-module';
+import { RegistryRoutingModule } from './tmp/registry/registry.routing-module';
 
 const components: any[] = [
     AppComponent,
@@ -35,6 +35,17 @@ const routes: Routes = [
         loadChildren: (): Promise<AuthRoutingModule> =>
             import('./tmp/auth/auth.routing-module').then(
                 (m: any) => m.AuthRoutingModule
+            ),
+    },
+    {
+        path: 'registry',
+        data: {
+            title: 'Регистрация',
+            breadcrumb: { label: 'Регистрация', title: 'Регистрация' },
+        },
+        loadChildren: (): Promise<RegistryRoutingModule> =>
+            import('./tmp/registry/registry.routing-module').then(
+                (m: any) => m.RegistryRoutingModule
             ),
     },
 ];

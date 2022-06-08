@@ -11,19 +11,29 @@ interface IPage {
 @Component({
     selector: 'app-auth',
     templateUrl: './auth.page.html',
-    styleUrls: ['./auth.page.css']
+    styleUrls: ['./auth.page.css'],
 })
-
 export class AuthPage implements OnInit {
     @Output()
     public onNamePage: EventEmitter<string> = new EventEmitter<string>();
 
-    public loginFormControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
-    public passFormControl: FormControl = new FormControl('', [Validators.required]);
+    public loginFormControl: FormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+    ]);
+    public passFormControl: FormControl = new FormControl('', [
+        Validators.required,
+    ]);
     public namePage: IPage = { name: 'signin' };
 
-    constructor(public authService: AuthService) { }
+    constructor(
+        public authService: AuthService,
+        private _router: Router,
+    ) {}
 
-    public ngOnInit(): void {
+    public ngOnInit(): void {}
+
+    public gotoRegistry(): void {
+        this._router.navigate(['/registry']);
     }
 }
