@@ -209,11 +209,11 @@ app-voting-plate {
 }
 
 .terms-of-use .mat-checkbox-frame {
-  border-color: #151515;
+    border-color: #151515;
 }
 /* .create-app-select-list .mat-form-field-flex {
     /* border-radius: 4px 4px 0px 0px; */
-    /* padding: 2px 2px 0 0 !important; 
+/* padding: 2px 2px 0 0 !important; 
 }*/
 
 .mat-select-arrow {
@@ -223,7 +223,7 @@ app-voting-plate {
 .faq-search .mat-form-field-flex,
 .user-profile-data-item .mat-form-field-flex {
     border-radius: 10px 10px !important;
-    padding: .75em .75em 0 .75em;
+    padding: 0.75em 0.75em 0 0.75em;
 }
 
 .faq-search .mat-form-field-underline,
@@ -232,11 +232,46 @@ app-voting-plate {
 }
 
 .faq-search .mat-form-field-infix,
-.user-profile-data-item .mat-form-field-infix
-{
+.user-profile-data-item .mat-form-field-infix {
     padding: 0.25em 0.25em;
 }
 
 .app-text .mat-form-field-infix {
     width: 800px !important;
+}
+
+.xng-breadcrumb-trail {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.xng-breadcrumb-item {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #c2c2c2;
+}
+
+.mat-radio-outer-circle {
+    border-color: rgb(15 15 15 / 70%);
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: inherit;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #AAD576;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #AAD576;
+}
+
+.mat-checkbox-frame {
+    border-color: rgb(15 15 15 / 70%);
 }

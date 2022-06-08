@@ -7,7 +7,31 @@
                 white: location === 'footer',
                 green: location === 'header'
             }"
-        >Реж Дума</div>
+        >
+            Реж Дума
+        </div>
+
+         <!-- <div *ngIf="isLogged">
+            <div [matMenuTriggerFor]="userMenu" class="user-profile">
+                <mat-icon class="u-icon user-icon">person_outline</mat-icon>
+                <mat-icon class="u-icon user-arrow">expand_more</mat-icon>
+            </div>
+            <mat-menu #userMenu="matMenu" xPosition="before" class="user-menu">
+                <div mat-menu-item class="user-menu-account">
+                    <mat-icon class="u-icon user-icon user-icon--big"
+                        >person_outline</mat-icon
+                    >
+                    <div class="user-menu-fullname">
+                        <span class="user-menu-name">Максим</span>
+                        <span class="user-menu-lastname">Алёшин</span>
+                    </div>
+                </div>
+                <button mat-menu-item>Личные данные</button>
+                <button mat-menu-item>Мои заявки</button>
+                <button mat-menu-item>Мои голосования</button>
+                <button mat-menu-item>Выйти</button>
+            </mat-menu>
+        </div> -->
         <!-- <nav>
             <ul class="main-menu">
                 <li (click)="gotoPage(homePage.main)">
@@ -51,27 +75,7 @@
             </button>
         </div> -->
 
-        <!-- <div *ngIf="isLogged">
-            <div [matMenuTriggerFor]="userMenu" class="user-profile">
-                <mat-icon class="u-icon user-icon">person_outline</mat-icon>
-                <mat-icon class="u-icon user-arrow">expand_more</mat-icon>
-            </div>
-            <mat-menu #userMenu="matMenu" xPosition="before" class="user-menu">
-                <div mat-menu-item class="user-menu-account">
-                    <mat-icon class="u-icon user-icon user-icon--big"
-                        >person_outline</mat-icon
-                    >
-                    <div class="user-menu-fullname">
-                        <span class="user-menu-name">Максим</span>
-                        <span class="user-menu-lastname">Алёшин</span>
-                    </div>
-                </div>
-                <button mat-menu-item>Личные данные</button>
-                <button mat-menu-item>Мои заявки</button>
-                <button mat-menu-item>Мои голосования</button>
-                <button mat-menu-item>Выйти</button>
-            </mat-menu>
-        </div> -->
+       
     </div>
-    <hr class="header-bottom"/>
+    <hr class="header-bottom" />
 </div>

@@ -1,0 +1,128 @@
+.voting-detail-box {
+    display: flex;
+    margin-top: 40px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.voting-detail-box div {
+    margin-bottom: 15px;
+}
+
+.date-subtitle,
+.text-subtitle,
+.tags-subtitle {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    color: #151515;
+    font-size: 16px;
+}
+
+.app-detail-item-content {
+    opacity: 99%;
+}
+
+.app-detail-text-content,
+.app-detail-reply-content {
+    display: block;
+    margin-top: 15px;
+}
+
+.app-detail-status-content {
+    color: #aad576;
+}
+
+.app-detail-list-file {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.files-name {
+    margin-left: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.app-detail-list-file .material-symbols-outlined {
+    vertical-align: middle;
+}
+
+.app-detail-list-file li {
+    margin-bottom: 15px;
+}
+
+.tags-list {
+    color: #c2c2c2;
+}
+
+.discussion-title {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.app-detail-discussion {
+    margin-top: 40px;
+}
+
+.voting-detail-content-list {
+    position: absolute;
+    width: 800px;
+    /* height: 300px; */
+
+    left: calc(50% - 350px);
+    margin-top: 70px;
+}
+
+.voting-detail-content-item {
+    width: 100%;
+    /* height: 300px; */
+    /* border: 1px solid rgb(14 10 2 / 50%); */
+    left: calc(50% - 350px);
+    margin-bottom: 40px;
+    background: #fbffff;
+    border-radius: 10px;
+    padding: 20px 15px;
+}
+
+.item-question {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.answer-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.item-answer {
+    margin-bottom: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+}
+
+.voting-detail-btn {
+    left: calc(50% - 100px);
+    background-color: #fbffff;
+    color: #151515;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    /* padding: 30px 10px; */
+    /* width: 100px; */
+    padding: 0px 50px;
+    border: 1px solid rgb(15 15 15 / 70%);
+    margin-bottom: 50px;
+}
