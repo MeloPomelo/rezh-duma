@@ -27,6 +27,7 @@ def generate_main_domain_columns() -> list[sa.Column]:
         {"args": ["status", sa.String], "kwargs": {"nullable": False}},
         {"args": ["files", ARRAY(sa.String)], "kwargs": {"nullable": True}},
         {"args": ["author", sa.String], "kwargs": {"nullable": False}},
+        {"args": ["tags", ARRAY(sa.String)], "kwargs": {"nullable": True}},
     ]
 
     return _generate(policy_part_columns) + generate_service_columns()

@@ -24,6 +24,8 @@ class BaseDomainRepository(BaseRepository):
             if column is not None and value is not None:
                 if isinstance(value, str):
                     query = self._search_words_in_field(query, value.split(), column)
+                elif isinstance(value, Iterable):
+                    query = query.filter(self.table.c[key].contains([value]))
                 elif not isinstance(value, datetime):
                     query = query.where(column == value)
 
