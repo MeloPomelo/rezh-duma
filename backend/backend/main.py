@@ -17,7 +17,8 @@ app.add_middleware(
 )
 
 api_routes = ((routes.applications_router, "applications"),
-              (routes.faq_router, "faqs"), (routes.votes_router, "votes"))
+              (routes.faq_router, "faqs"), (routes.votes_router, "votes"),
+              (routes.search_router, "search"))
 
 for router, tag in api_routes:
     app.include_router(router, prefix=fr"/{tag}", tags=[tag])

@@ -4,6 +4,7 @@ from backend.models.mixins.base_domain import BaseDomainModelMixin, BaseDomainIn
 
 class Application(BaseDomainModelMixin):
     is_public: bool
+    recipient: Optional[str]
 
 
 class ApplicationInDB(BaseDomainInDbModelMixin, Application):

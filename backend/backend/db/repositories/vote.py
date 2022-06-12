@@ -49,7 +49,7 @@ class VoteRepository(BaseDomainRepository):
         query_for_total = select(func.count()).select_from(query.subquery())
         votes = await self.database.fetch_all(query=query_with_restrictions)
         total = await self.database.execute(query_for_total)
-        if vote.id and total:
+        if vote.__dict__.get('id', False) and total:
             votes = [VoteInResponse(**vote_, template=await self._get_template(vote.id)) for vote_ in votes]
         else:
             votes = [VoteInResponse(**vote_, template=None) for vote_ in votes]
