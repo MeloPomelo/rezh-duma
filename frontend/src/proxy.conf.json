@@ -2,9 +2,6 @@
   "/api": {
       "target": "http://swagger.rezhduma.live/",
       "secure": false,
-      "pathRewrite": {
-          "^/api": ""
-      },
       "changeOrigin": true
   }
 }
