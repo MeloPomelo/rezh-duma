@@ -21,7 +21,7 @@ api_routes = ((routes.applications_router, "applications"),
               (routes.search_router, "search"))
 
 for router, tag in api_routes:
-    app.include_router(router, prefix=fr"/{tag}", tags=[tag])
+    app.include_router(router, prefix=fr"/api/{tag}", tags=[tag])
 
 app.add_event_handler("startup", start_app_handler)
 app.add_event_handler("shutdown", stop_app_handler)

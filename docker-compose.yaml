@@ -26,8 +26,6 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api.rule=((Host(`${DOMAIN}`) && PathPrefix(`/api`)) || Host(`swagger.${DOMAIN}`))"
-      - "traefik.http.routers.api.middlewares=api-stripprefix"
-      - "traefik.http.middlewares.api-stripprefix.stripprefix.prefixes=/api"
     depends_on:   
       - db
       - traefik
