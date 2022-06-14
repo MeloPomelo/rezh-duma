@@ -7,5 +7,6 @@ export interface IApplicationsRequestModel {
     from_created_date?: string;
     to_created_date?: string;
     author?: string;
+    tags?: string[];
 }
 
