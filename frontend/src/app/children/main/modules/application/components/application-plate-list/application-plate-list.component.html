@@ -1,4 +1,4 @@
-<app-tags></app-tags>
+<app-tags (tags)="addTags($event)"></app-tags>
 <div class="application-plate-list" *ngIf="modelSubject$ | async as modelList; else skeleton">
     <app-application-plate *ngFor="let item of modelList" [model]="item">
 
