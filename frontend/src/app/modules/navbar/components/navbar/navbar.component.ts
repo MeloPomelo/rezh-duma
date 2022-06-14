@@ -36,6 +36,6 @@ export class NavbarComponent {
     }
 
     public isLogged(): boolean {
-        return this.authService.isLoggedIn;
+        return this.authService.isLogged$.getValue();
     }
 }

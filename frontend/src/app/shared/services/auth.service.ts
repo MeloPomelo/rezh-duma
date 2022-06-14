@@ -7,14 +7,16 @@ import {
     AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
     public userData: any; // Save logged in user data
+
+    public isLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     constructor(
         public afs: AngularFirestore, // Inject Firestore service
         public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -28,9 +30,11 @@ export class AuthService {
                 this.userData = user;
                 localStorage.setItem('user', JSON.stringify(this.userData));
                 JSON.parse(localStorage.getItem('user')!);
+                this.isLogged$.next(true);
             } else {
                 localStorage.setItem('user', 'null');
                 JSON.parse(localStorage.getItem('user')!);
+                this.isLogged$.next(false);
             }
         });
     }
@@ -83,12 +87,6 @@ export class AuthService {
             .catch((error: any) => {
                 window.alert(error);
             });
-    }
-    // Returns true when user is looged in and email is verified
-    public get isLoggedIn(): boolean {
-        const user: any = JSON.parse(localStorage.getItem('user')!);
-
-        return user !== null;
     }
 
     // Auth logic to run auth providers
@@ -162,11 +160,11 @@ export class AuthService {
     }
 
     public getUserType(): any {
-        if (this.isLoggedIn) {
-            return this.userType();
-        } else {
-            return 'Guest';
-        }
+        return this.isLogged$
+            .pipe(
+                filter((isLogged: boolean) => isLogged),
+                switchMap(() => this.userType())
+            );
     }
 
     public userType(): any {

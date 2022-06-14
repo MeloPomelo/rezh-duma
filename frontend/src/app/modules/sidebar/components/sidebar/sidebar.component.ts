@@ -1,8 +1,10 @@
+import { BehaviorSubject } from 'rxjs';
 import {
     Component,
     Input,
     OnInit,
     ChangeDetectionStrategy,
+    AfterViewInit,
 } from '@angular/core';
 // import { IPage } from '../app.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -14,7 +16,7 @@ import { AuthService } from '../../../../shared/services/auth.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./styles/sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements AfterViewInit {
     // public authService: AuthService;
     @Input()
     public location: 'header' | 'footer' = 'header';
@@ -36,7 +38,7 @@ export class SidebarComponent implements OnInit {
     public analyticsPage: string = 'analytics';
     public createVoting: string ='voting/create';
 
-    public typeUser!: any;
+    public userTypeSubj$: BehaviorSubject<string> = new BehaviorSubject<string>('Guest');
 
     constructor(
         private _route: ActivatedRoute,
@@ -59,16 +61,12 @@ export class SidebarComponent implements OnInit {
     //     return this.authService.getUserType();
     // }
 
-    public ngOnInit(): void {
-        if (this.authService.isLoggedIn) {
-            this.authService.getUserType().subscribe((snap: any) => {
-                const data: any = snap.data();
-                this.typeUser = data.type;
-            });
-        } else {
-            this.typeUser = 'Guest';
-        }
-        console.log(this.typeUser);
+    public ngAfterViewInit(): void {
+
+        this.authService.getUserType().subscribe((snap: any) => {
+            this.userTypeSubj$.next(snap.type);
+        });
+
     }
 
     // public ngDoCheck(): void {

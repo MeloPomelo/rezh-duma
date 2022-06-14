@@ -30,7 +30,6 @@ export class FaqPage implements OnInit {
             .pipe(
                 map((p: Params) => Number.parseInt(p['id']) || -1)
             ).subscribe((id: number) => {
-                console.log(id === 1, 'fdf');
                 this.selectedFaqSubj$.next(id);
             });
         this.search('');

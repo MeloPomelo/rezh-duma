@@ -22,7 +22,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser !== 'Deputy' }"
+            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
             (click)="gotoPage(createVoting)"
             class="sidebar-item sidebar-create-voting"
         >
@@ -33,7 +33,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser !== 'Guest' }"
+            *ngIf="(userTypeSubj$ | async) === 'Guest'"
             (click)="gotoPage('auth')"
             class="sidebar-item sidebar-auth"
         >
@@ -44,7 +44,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser !== 'User' }"
+            *ngIf="(userTypeSubj$ | async) === 'User'"
             (click)="gotoPage(createApplicationPage)"
             class="sidebar-item"
         >
@@ -55,7 +55,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser === 'Guest' }"
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
             (click)="gotoPage(userProfile)"
             class="sidebar-item"
         >
@@ -66,7 +66,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser === 'Guest' }"
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
             class="sidebar-item"
         >
             <span class="sidebar-item-icon material-symbols-outlined">
@@ -76,7 +76,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser !== 'Deputy' }"
+            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
             class="sidebar-item"
             (click)="gotoPage(analyticsPage)"
         >
@@ -87,7 +87,7 @@
         </li>
 
         <li
-            [ngClass]="{ 'no-visible': typeUser === 'Guest' }"
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
             (click)="userSignOut()"
             class="sidebar-item"
         >

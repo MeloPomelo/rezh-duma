@@ -110,7 +110,7 @@ export class UserProfilePage implements OnInit {
             floatLabel: this.floatLabelControl,
         });
 
-        if (this.authService.isLoggedIn) {
+        if (this.authService.isLogged$.getValue()) {
             this.authService.getUserType().subscribe((snap: any) => {
                 const data: any = snap.data();
                 // console.log(data.type + ' 135');
