@@ -13,7 +13,7 @@ import { ApplicationsRequestsService } from '../../services/applications.request
 })
 export class ApplicationPlateListComponent {
 
-    public readonly count: number = 1;
+    public readonly count: number = 10;
     public modelSubject$: BehaviorSubject<ApplicationPlateViewModel[] | null> = new BehaviorSubject<ApplicationPlateViewModel[] | null>(null);
     public hasMore: boolean = false;
 
