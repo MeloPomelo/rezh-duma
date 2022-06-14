@@ -288,6 +288,19 @@ app-voting-plate {
     line-height: 35px;
 }
 
-/* .dropdown-item .mat-select-search-input {
+.mat-dialog-container {
+    background: #FBFFFF;
+    box-shadow: 10px 8px 11px 6px rgba(0, 0, 0, 0.25);
+}
 
-} */
+.list-by-county-form .mat-form-field-infix {
+    padding: 0.1em 0 .2em 0;
+}
+
+.list-by-county-form .mat-form-field-underline {
+    opacity: 0;
+}
+
+.no-visible {
+  display: none !important;
+}

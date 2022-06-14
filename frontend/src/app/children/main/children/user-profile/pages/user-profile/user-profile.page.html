@@ -1,9 +1,15 @@
-<div class="user-profile">
+<form
+    class="user-profile"
+    [formGroup]="userFormData"
+    (ngSubmit)="updateUserData()"
+>
     <span class="user-profile-title">Личные данные</span>
     <div class="user-profile-content">
         <div class="user-profile-photo">
             <!-- <div class="user-photo-box"></div> -->
-            <span class="material-icons user-photo-example">account_circle</span>
+            <span class="material-icons user-photo-example"
+                >account_circle</span
+            >
         </div>
 
         <div class="user-profile-data">
@@ -14,7 +20,13 @@
                     appearance="fill"
                 >
                     <mat-label>Имя*</mat-label>
-                    <input matInput type="text" placeholder="Петр" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Петр"
+                        formControlName="userName"
+                        value="{{ currUserData.name }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
 
@@ -23,7 +35,13 @@
                     appearance="fill"
                 >
                     <mat-label>Фамилия*</mat-label>
-                    <input matInput type="text" placeholder="Петров" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Петров"
+                        formControlName="userLastName"
+                        value="{{ currUserData.lastName }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
 
@@ -32,7 +50,13 @@
                     appearance="fill"
                 >
                     <mat-label>Отчество</mat-label>
-                    <input matInput type="text" placeholder="Петрович" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Петрович"
+                        formControlName="userPatron"
+                        value="{{ currUserData.patronName }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
             </div>
@@ -48,6 +72,8 @@
                         matInput
                         type="text"
                         placeholder="rezh-duma@urfu.ru"
+                        formControlName="userEmail"
+                        value="{{ currUserData.email }}"
                     />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
@@ -61,6 +87,8 @@
                         matInput
                         type="text"
                         placeholder="8-(800)-555-3-55"
+                        formControlName="userPhone"
+                        value="{{ currUserData.phone }}"
                     />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
@@ -73,23 +101,48 @@
                     appearance="fill"
                 >
                     <mat-label>Новый пароль</mat-label>
-                    <input matInput type="text" placeholder="aIKz_R21rw" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="aIKz_R21rw"
+                        formControlName="userPassword"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
 
-                <button mat-stroked-button class="change-password">
+                <button
+                    mat-stroked-button
+                    class="change-password"
+                    type="submit"
+                >
                     Изменить пароль
                 </button>
             </div>
 
-            <span class="title-address">Место жительства</span>
-            <div class="user-profile-address">
+            <span
+                [ngClass]="{ 'no-visible': typeUser !== 'User' }"
+                class="title-address"
+                >Место жительства</span
+            >
+            <div
+                [ngClass]="{ 'no-visible': typeUser !== 'User' }"
+                class="user-profile-address"
+            >
                 <mat-form-field
                     class="example-form-field user-profile-data-item user-city"
                     appearance="fill"
+                    [floatLabel]="'always'"
+                    [hideRequiredMarker]="hideRequiredControl.value"
+                    [floatLabel]="getFloatLabelValue()"
                 >
                     <mat-label>Город*</mat-label>
-                    <input matInput type="text" placeholder="Реж" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Реж"
+                        formControlName="userCity"
+                        value="{{ currUserData.city }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
 
@@ -98,7 +151,14 @@
                     appearance="fill"
                 >
                     <mat-label>Улица</mat-label>
-                    <input matInput type="text" placeholder="Ленина" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Ленина"
+                        name="user-street"
+                        formControlName="userStreet"
+                        value="{{ currUserData.street }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
 
@@ -107,16 +167,41 @@
                     appearance="fill"
                 >
                     <mat-label>Дом</mat-label>
-                    <input matInput type="text" placeholder="7" />
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="7"
+                        name="user-numb-house"
+                        formControlName="userNumberHouse"
+                        value="{{ currUserData.numberHouse }}"
+                    />
                     <mat-icon matSuffix></mat-icon>
                 </mat-form-field>
             </div>
 
+            <div [ngClass]="{ 'no-visible': typeUser !== 'User' }">
+                <span class="title-code">Код авторизации</span>
+                <div>
+                    <mat-form-field
+                        appearance="fill"
+                        [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="getFloatLabelValue()"
+                        class="example-form-field user-profile-data-item"
+                    >
+                        <mat-label>telegram</mat-label>
+                        <input
+                            matInput
+                            placeholder="telegram"
+                            value="{{ codeTelegram }}"
+                        />
+                    </mat-form-field>
+                </div>
+            </div>
             <div class="user-data-save-box">
-                <button mat-raised-button class="user-data-save">
+                <button mat-raised-button class="user-data-save" type="submit">
                     Сохранить
                 </button>
             </div>
         </div>
     </div>
-</div>
+</form>

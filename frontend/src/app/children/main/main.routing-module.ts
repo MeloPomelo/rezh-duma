@@ -19,12 +19,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutPage } from './pages/main-layout/main-layout.page';
 
+import { AuthService } from '../../shared/services/auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../environments/environment';
+
 import { TuiComboBoxModule, TuiDataListWrapperModule } from '@taiga-ui/kit';
 import { TuiDataListModule, TuiHintControllerModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiLetModule } from '@taiga-ui/cdk';
 import { HttpClientModule } from '@angular/common/http';
-
-
 
 
 // import { MatInputModule } from '@angular/material/input';
@@ -110,6 +112,7 @@ const routes: Routes = [
         FormsModule,
         MatButtonModule,
         TagsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
         TuiComboBoxModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
@@ -117,10 +120,8 @@ const routes: Routes = [
         TuiLetModule,
         TuiTextfieldControllerModule,
     ],
+    providers: [AuthService, SearchRequestsService],
     declarations: components,
     exports: [RouterModule],
-    providers: [
-        SearchRequestsService
-    ]
 })
 export class MainRoutingModule {}
