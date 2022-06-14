@@ -1,0 +1,32 @@
+<div class="modal-window-container">
+    <h1 mat-dialog-title>Список депутатов по округам</h1>
+    <div mat-dialog-content>
+        <mat-form-field class="list-by-county-form" appearance="fill">
+            <mat-label>Выберите ваш округ</mat-label>
+            <mat-select [(value)]="selectedCounty">
+                <mat-option value="county1">1 округ</mat-option>
+                <mat-option value="county2">2 округ</mat-option>
+                <mat-option value="county3">3 округ</mat-option>
+                <mat-option value="county4">4 округ</mat-option>
+                <mat-option value="county5">5 округ</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="list-by-county">
+            <span class="subtitle-list-by-county">Депутаты в этом округе:</span>
+            <ul>
+                <li
+                    class="county-list-item"
+                    *ngFor="let countyMP of countiesList[selectedCounty]"
+                >
+                    {{countyMP}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="dialog-close" mat-button mat-dialog-close>
+            Закрыть
+        </button>
+    </div>
+</div>

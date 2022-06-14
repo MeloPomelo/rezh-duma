@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+
 const components: any = [
     SidebarComponent
 ];

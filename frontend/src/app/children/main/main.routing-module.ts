@@ -17,6 +17,9 @@ import { MainDomainsModule } from './modules/main-domains/main-domains.module';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MainLayoutPage } from './pages/main-layout/main-layout.page';
+import { AuthService } from '../../shared/services/auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../environments/environment';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatIconModule } from '@angular/material/icon';
 
@@ -99,7 +102,9 @@ const routes: Routes = [
         FormsModule,
         MatButtonModule,
         TagsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ],
+    providers: [AuthService],
     declarations: components,
     exports: [RouterModule],
 })
