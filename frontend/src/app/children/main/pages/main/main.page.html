@@ -22,7 +22,7 @@
                             <ng-template tuiDataList>
                                 <tui-data-list emptyContent="Ничего не найдено">
                                     <button *ngFor="let item of (modelSubj$ | async)?.list" tuiOption
-                                        [routerLink]=""item.url>
+                                        [routerLink]="item.url">
                                         <div class="option-item">
                                             <span class="option-item__group">{{item.group}}</span>
                                             <span>{{item.title}}</span>
