@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { IUser } from '../../../../../../shared/services/user';
 import { AuthService } from '../../../../../../shared/services/auth.service';
 import {
@@ -15,6 +16,7 @@ import {
     AngularFirestoreDocument,
     AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
+import { filter } from 'rxjs';
 
 @Component({
     templateUrl: './user-profile.page.html',
@@ -47,7 +49,8 @@ export class UserProfilePage implements OnInit {
 
     constructor(
         public authService: AuthService,
-        public afs: AngularFirestore
+        public afs: AngularFirestore,
+        private _ref: ChangeDetectorRef
     ) {}
 
     // public userData!: IUser;
@@ -109,35 +112,37 @@ export class UserProfilePage implements OnInit {
             hideRequired: this.hideRequiredControl,
             floatLabel: this.floatLabelControl,
         });
-
-        if (this.authService.isLogged$.getValue()) {
-            this.authService.getUserType().subscribe((snap: any) => {
+        this.typeUser = 'Guest';
+        this.authService.isLogged$
+            .pipe(
+                filter((value: boolean) => value),
+                switchMap(() => {
+                    return this.authService.getUserType();
+                })
+            ).subscribe((snap: any) => {
                 const data: any = snap.data();
-                // console.log(data.type + ' 135');
                 this.typeUser = data.type;
+                this.afs
+                    .doc(`users/${JSON.parse(localStorage['user']).uid}`)
+                    .get()
+                    .forEach((snap: any) => {
+                        const uData: any = snap.data();
+                        this.currUserData.name = uData.name;
+                        this.currUserData.lastName = uData.lastName;
+                        this.currUserData.patronName = uData.patronName;
+                        this.currUserData.phone = uData.phoneNumber;
+                        this.currUserData.email = uData.email;
+                        this.currUserData.city = uData.city;
+                        this.currUserData.street = uData.street;
+                        this.currUserData.numberHouse = uData.numberHouse;
+
+                        // this.codeTelegram = window.btoa(uData.name);
+                        this.codeTelegram = window.btoa(
+                            unescape(encodeURIComponent(uData.name))
+                        );
+                        this._ref.markForCheck();
+
+                    });
             });
-
-            this.afs
-                .doc(`users/${JSON.parse(localStorage['user']).uid}`)
-                .get()
-                .forEach((snap: any) => {
-                    const uData: any = snap.data();
-                    this.currUserData.name = uData.name;
-                    this.currUserData.lastName = uData.lastName;
-                    this.currUserData.patronName = uData.patronName;
-                    this.currUserData.phone = uData.phoneNumber;
-                    this.currUserData.email = uData.email;
-                    this.currUserData.city = uData.city;
-                    this.currUserData.street = uData.street;
-                    this.currUserData.numberHouse = uData.numberHouse;
-
-                    // this.codeTelegram = window.btoa(uData.name);
-                    this.codeTelegram = window.btoa(
-                        unescape(encodeURIComponent(uData.name))
-                    );
-                });
-        } else {
-            this.typeUser = 'Guest';
-        }
     }
 }
