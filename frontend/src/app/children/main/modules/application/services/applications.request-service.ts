@@ -60,4 +60,21 @@ export class ApplicationsRequestsService {
         return of();
     }
 
+    public dowloadFile(name: string): void {
+        const url: string = 'https://avatars.mds.yandex.net/get-ynews/1980447/6f48a870d2cb7ca80f674efd3e433970/992x496';
+        this.http.get(url, { responseType: 'blob' as 'json' }
+        ).subscribe(
+            (response: any) =>{
+                let dataType = response.type;
+                let binaryData = [];
+                binaryData.push(response);
+                let downloadLink = document.createElement('a');
+                downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
+                if (name)
+                    downloadLink.setAttribute('download', name);
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+            }
+        );
+    }
 }

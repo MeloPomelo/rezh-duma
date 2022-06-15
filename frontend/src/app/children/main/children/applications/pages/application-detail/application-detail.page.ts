@@ -5,6 +5,7 @@ import {
     Component,
     OnInit,
     Inject,
+    ChangeDetectorRef,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -52,7 +53,8 @@ export class ApplicationDetailPage implements OnInit {
         private _applicationsRequestsService: ApplicationsRequestsService,
         private _titleService: Title,
         private _breadcrumbService: BreadcrumbService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private _ref: ChangeDetectorRef
     ) {}
 
     public ngOnInit(): void {
@@ -81,8 +83,13 @@ export class ApplicationDetailPage implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result: any) => {
-            // console.log('The dialog was closed');
+            console.log('The dialog was closed', result);
             this.feedback = result;
+            this._ref.markForCheck();
         });
+    }
+
+    public download(name: string): void {
+        this._applicationsRequestsService.dowloadFile(name);
     }
 }
