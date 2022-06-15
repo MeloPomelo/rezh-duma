@@ -14,9 +14,11 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 const components: any[] = [
     AppComponent,
+    NotFoundComponent
 ];
 
 const routes: Routes = [
@@ -53,6 +55,10 @@ const routes: Routes = [
                 (m: any) => m.RegistryRoutingModule
             ),
     },
+    {
+        path: '**',
+        component: NotFoundComponent
+    }
 ];
 
 
