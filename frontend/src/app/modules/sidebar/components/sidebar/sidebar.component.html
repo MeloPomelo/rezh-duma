@@ -44,7 +44,7 @@
         </li>
 
         <li
-            *ngIf="(userTypeSubj$ | async) == 'User'"
+            *ngIf="(userTypeSubj$ | async) !== 'Guest' && (userTypeSubj$ | async) !== 'Deputy'"
             (click)="gotoPage(createApplicationPage)"
             class="sidebar-item"
         >
