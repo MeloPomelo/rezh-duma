@@ -4,3 +4,7 @@
     align-items: flex-start;
     padding: 0px 20px;
 }
+
+app-voting-plate {
+    width: 33.33%;
+}
