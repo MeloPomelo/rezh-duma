@@ -65,6 +65,7 @@ export class SidebarComponent implements AfterViewInit {
 
         this.authService.getUserType().subscribe((snap: any) => {
             this.userTypeSubj$.next(snap.type);
+            console.log(this.userTypeSubj$.next(snap.type));
         });
 
     }

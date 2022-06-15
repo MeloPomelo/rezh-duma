@@ -1,10 +1,11 @@
+import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { AppComponent } from './components/app/app.component';
-import { TuiRootModule } from '@taiga-ui/core';
+import { TuiRootModule, TuiDialogModule, TUI_SANITIZER } from '@taiga-ui/core';
 import { MainRoutingModule } from './children/main/main.routing-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthRoutingModule } from './tmp/auth/auth.routing-module';
@@ -64,10 +65,11 @@ const routes: Routes = [
         TuiRootModule,
         BreadcrumbModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
+        TuiDialogModule
     ],
     declarations: components,
     bootstrap: components,
-    providers: [AuthService],
+    providers: [AuthService, {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
     exports: [RouterModule],
 })
 export class AppRoutingModule {}

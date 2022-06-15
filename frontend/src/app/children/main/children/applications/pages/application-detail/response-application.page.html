@@ -1,0 +1,45 @@
+<div class="response-box">
+    <h1 class="response-text" mat-dialog-title>Ответ на заявку</h1>
+    <div mat-dialog-content>
+        <p class="response-text">Напишите ваше решение по данной проблеме</p>
+
+        <mat-form-field
+            class="response-form response-contacst"
+            appearance="fill"
+        >
+            <mat-label class="response-text">Контакты для связи</mat-label>
+            <input
+                class="response-text"
+                placeholder="deputat@urfu.ru"
+                matInput
+            />
+        </mat-form-field>
+
+        <mat-form-field class="response-form" appearance="fill">
+            <mat-label class="response-text">Ввод..</mat-label>
+            <textarea
+                class="response-text response-answer"
+                matInput
+                [(ngModel)]="data.feedback"
+            ></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button
+            class="response-text"
+            mat-button
+            (click)="onNoClick()"
+            [mat-dialog-close]="data.feedback"
+        >
+            Закрыть
+        </button>
+        <button
+            class="response-text response-submit"
+            mat-flat-button
+            [mat-dialog-close]="data.feedback"
+            cdkFocusInitial
+        >
+            Отправить
+        </button>
+    </div>
+</div>

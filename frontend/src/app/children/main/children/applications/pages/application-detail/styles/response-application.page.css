@@ -1,0 +1,20 @@
+.response-text {
+    color: #151515 !important;
+    font-family: Inter;
+}
+
+.response-box {
+    width: 600px !important;
+}
+
+.response-answer{
+    height: 100px;
+}
+
+input::placeholder {
+     color: rgb(15 15 15 / 50%);
+}
+
+.response-submit{
+    background-color: #aad576;
+}

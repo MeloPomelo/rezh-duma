@@ -10,7 +10,7 @@ export class ApplicationModel extends BaseDomainModel {
     public isPublic: boolean;
     public status: string;
     public feedback: string;
-
+    public recipient: string;
 
     constructor(model: IApplicationsResponseModel) {
         super(model);
@@ -22,6 +22,7 @@ export class ApplicationModel extends BaseDomainModel {
         this.createdAt = new Date(model.created_at);
         this.status = model.status;
         this.feedback = model.feedback;
+        this.recipient = model.recipient;
     }
 
 }

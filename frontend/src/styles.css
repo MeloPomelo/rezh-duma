@@ -41,6 +41,14 @@ body {
 .user-profile-data-item .mat-form-field-infix {
     width: 200px !important;
 }
+
+.response-form .mat-form-field-infix {
+     width: 500px !important;
+}
+
+.response-contacst .mat-form-field-infix{
+    width: 300px !important;
+}
 .mat-form-field-appearance-fill .mat-form-field-ripple {
     bottom: 0 !important;
     height: 2px !important;
@@ -263,11 +271,11 @@ app-voting-plate {
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
 .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-    background-color: #AAD576;
+    background-color: #aad576;
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #AAD576;
+    border-color: #aad576;
 }
 
 .mat-checkbox-frame {
@@ -275,12 +283,12 @@ app-voting-plate {
 }
 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: #AAD576;
+    background-color: #aad576;
     opacity: 90%;
 }
 
 .tag.mat-button-toggle-checked {
-    background-color: #9FE0EF !important;
+    background-color: #9fe0ef !important;
     color: #151515 !important;
 }
 
@@ -289,12 +297,18 @@ app-voting-plate {
 }
 
 .mat-dialog-container {
-    background: #FBFFFF;
+    background: #fbffff;
+    box-shadow: 10px 8px 11px 6px rgba(0, 0, 0, 0.25);
+    overflow-x: hidden !important;
+}
+
+.response-form .mat-dialog-container {
+    background: #fbffff;
     box-shadow: 10px 8px 11px 6px rgba(0, 0, 0, 0.25);
 }
 
 .list-by-county-form .mat-form-field-infix {
-    padding: 0.1em 0 .2em 0;
+    padding: 0.1em 0 0.2em 0;
 }
 
 .list-by-county-form .mat-form-field-underline {
@@ -302,5 +316,5 @@ app-voting-plate {
 }
 
 .no-visible {
-  display: none !important;
+    display: none !important;
 }

@@ -12,8 +12,8 @@
         </mat-form-field>
 
         <div class="list-deputys">
-            <span class="list-deputys-item">Список депутатов</span>
-            <span class="list-deputys-item">Список комиссий</span>
+            <span (click)="openDialog(dialogListDeputiesPage)" class="list-deputys-item">Список депутатов</span>
+            <span (click)="openDialog(dialogListCommissionPage)" class="list-deputys-item">Список комиссий</span>
         </div>
 
         <h4 class="subtitle-select subtitle-deputy-select">

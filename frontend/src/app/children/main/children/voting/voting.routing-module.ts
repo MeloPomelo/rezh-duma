@@ -13,7 +13,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-const components: any[] = [VotingPage, VotingDetailPage];
+import { AuthGuard } from '../../../../shared/guard/auth.guard';
+import { CreateVotingPage } from './pages/create-voting/create-voting.page';
+const components: any[] = [VotingPage, VotingDetailPage, CreateVotingPage];
 
 const routes: Routes = [
     {
@@ -36,6 +38,20 @@ const routes: Routes = [
             },
         },
         pathMatch: 'full',
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'create',
+        component: CreateVotingPage,
+        data: {
+            title: 'Создание опроса',
+            breadcrumb: {
+                label: 'Создание опроса',
+                title: 'Создание опроса',
+            },
+        },
+        pathMatch: 'full',
+        canActivate: [AuthGuard],
     },
 ];
 

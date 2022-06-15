@@ -63,9 +63,48 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-
 }
 
-.app-detail-discussion{
+.app-detail-discussion {
     margin-top: 40px;
+}
+
+.open-response-box {
+    position: absolute;
+    right: 40px;
+    bottom: 1px;
+}
+
+.app-detail-box {
+    position: relative;
+}
+
+.open-response-box button {
+    background-color: #aad576;
+    color: #151515;
+}
+
+.feeback-author-icon {
+    font-size: 22pt;
+    color: #aad576;
+}
+
+.feeback-author-name {
+    margin-left: 20px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.feedback-author {
+    display: flex;
+}
+
+.feedback-content {
+    margin-left: 50px;
+}
+
+.app-detail-files {
+    position: relative;
 }

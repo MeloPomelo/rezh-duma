@@ -1,0 +1,29 @@
+.applications {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+/* app-application-plate {
+    width: calc((100% / 3) - 30px);
+    margin-bottom: 30px;
+    margin-right: 20px;
+    display: inline-flex;
+} */
+
+
+.applications {
+  margin: 0;
+  padding: 0;
+}
+
+.applications-title {
+    font-family: Manrope;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    width: 100%;
+    padding-top: 20px;
+}

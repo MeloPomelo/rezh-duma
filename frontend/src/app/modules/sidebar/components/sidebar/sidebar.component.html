@@ -22,7 +22,7 @@
         </li>
 
         <li
-            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+            *ngIf="(userTypeSubj$ | async) !== 'User' && (userTypeSubj$ | async) !== 'Guest'"
             (click)="gotoPage(createVoting)"
             class="sidebar-item sidebar-create-voting"
         >
@@ -76,7 +76,7 @@
         </li>
 
         <li
-            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+            *ngIf="(userTypeSubj$ | async) !== 'User' && (userTypeSubj$ | async) !== 'Guest'"
             class="sidebar-item"
             (click)="gotoPage(analyticsPage)"
         >

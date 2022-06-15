@@ -1,22 +1,34 @@
 import { ApplicationsRequestsService } from './../../../../modules/application/services/applications.request-service';
 import { ApplicationModel } from './../../../../../../models/main/applications/data/models/application.model';
 import { TuiDestroyService } from '@taiga-ui/cdk';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Inject,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import {
+    MatDialog,
+    MatDialogRef,
+    MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { ResponseApplicationPage } from './response-application.page';
 
 @Component({
     templateUrl: './application-detail.page.html',
     styleUrls: ['./styles/application-detail.page.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [TuiDestroyService]
+    providers: [TuiDestroyService],
 })
 export class ApplicationDetailPage implements OnInit {
-    public modelSubj$: BehaviorSubject<ApplicationModel | null> = new BehaviorSubject<ApplicationModel | null>(null);
+    public modelSubj$: BehaviorSubject<ApplicationModel | null> =
+        new BehaviorSubject<ApplicationModel | null>(null);
 
+    public feedback!: string;
+    public contacts!: string;
     public deputys: string[] = [
         'Генадий Петрович Хазанов',
         'Артём Максимович Лещенко',
@@ -39,23 +51,38 @@ export class ApplicationDetailPage implements OnInit {
         private _destroy$: TuiDestroyService,
         private _applicationsRequestsService: ApplicationsRequestsService,
         private _titleService: Title,
-        private _breadcrumbService: BreadcrumbService
-    ){
-
-    }
+        private _breadcrumbService: BreadcrumbService,
+        public dialog: MatDialog
+    ) {}
 
     public ngOnInit(): void {
         const id: string | null = this._route.snapshot.paramMap.get('id');
         if (id) {
-            this._applicationsRequestsService.getItemById(id, this._destroy$)
+            this._applicationsRequestsService
+                .getItemById(id, this._destroy$)
                 .subscribe((model: ApplicationModel | null) => {
                     this.modelSubj$.next(model);
                     if (model) {
                         this._titleService.setTitle(model.title);
-                        this._breadcrumbService.set('@application', model.title);
+                        this._breadcrumbService.set(
+                            '@application',
+                            model.title
+                        );
                     }
                 });
         }
+    }
 
+    public openDialog(): void {
+        const dialogRef: any = this.dialog.open(ResponseApplicationPage, {
+            width: '600px',
+            height: '400px',
+            data: { contacts: this.contacts, feedback: this.feedback },
+        });
+
+        dialogRef.afterClosed().subscribe((result: any) => {
+            // console.log('The dialog was closed');
+            this.feedback = result;
+        });
     }
 }

@@ -2,11 +2,34 @@
     <div>
         <xng-breadcrumb></xng-breadcrumb>
     </div>
-    <ng-container *ngIf="modelSubj$ | async as model">
+    <ng-container class="app-detail-box" *ngIf="modelSubj$ | async as model">
         <div class="app-detail-data">
+            <div class="app-detail-status">
+                <span class="app-detail-subtitle">Статус заявки: </span>
+                <span class="app-detail-item-content app-detail-status-content"
+                    >{{ model.status }}</span
+                >
+            </div>
+
+            <div class="app-detail-author">
+                <span class="app-detail-subtitle">Автор: </span>
+                <span class="app-detail-item-content app-detail-author-content"
+                    >{{ model.author }}</span
+                >
+            </div>
+
             <div class="app-detail-date">
                 <span class="app-detail-subtitle">Дата обращения: </span>
-                <span class="app-detail-item-content">{{ model.createdAt | date: "dd.MM.YYYY"}}</span>
+                <span class="app-detail-item-content"
+                    >{{ model.createdAt | date: "dd.MM.YYYY"}}</span
+                >
+            </div>
+
+            <div class="app-detail-place">
+                <span class="app-detail-subtitle">Откуда: </span>
+                <span class="app-detail-item-content"
+                    >{{ model.location }}</span
+                >
             </div>
 
             <div class="app-detail-place">
@@ -25,21 +48,12 @@
                 >
             </div>
 
-            <div class="app-detail-status">
-                <span class="app-detail-subtitle">Статус заявки: </span>
-                <span class="app-detail-item-content app-detail-status-content"
-                    >{{ model.status }}</span
-                >
-            </div>
-
-            <div class="app-detail-reply" *ngIf="model.feedback">
+            <!-- <div class="app-detail-reply" *ngIf="model.feedback">
                 <span class="app-detail-subtitle">Ответ на заявку: </span>
                 <span class="app-detail-item-content app-detail-reply-content"
-                    ><p>
-                        {{ model.feedback }}
-                    </p></span
+                    ><p>{{ model.feedback }}</p></span
                 >
-            </div>
+            </div> -->
 
             <div class="app-detail-files">
                 <span class="app-detail-subtitle">Прикрепленные файлы: </span>
@@ -53,6 +67,32 @@
                         </li>
                     </ul>
                 </span>
+
+                <div class="open-response-box">
+                    <button mat-raised-button (click)="openDialog()">
+                        Ответить на заявку
+                    </button>
+                </div>
+            </div>
+
+            <hr class="header-bottom" />
+            <div class="app-detail-feedback" *ngIf="1">
+                <div class="feedback-author">
+                    <span class="material-icons feeback-author-icon"
+                        >account_circle</span
+                    >
+                    <span class="feeback-author-name"
+                        >Депутат {{ model.recipient }}</span
+                    >
+                </div>
+
+                <div class="feedback-content" *ngIf="1">
+                    <span class="app-detail-subtitle">Ответ на заявку: </span>
+                    <span
+                        class="app-detail-item-content app-detail-reply-content"
+                        ><p>Пример какого-то ответа{{ feedback }}</p></span
+                    >
+                </div>
             </div>
 
             <div class="app-detail-tags">
