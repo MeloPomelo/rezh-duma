@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { BehaviorSubject, filter, map, Observable } from 'rxjs';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { ApplicationModel, ApplicationPlateViewModel, IApplicationsRequestModel, IListOfModels } from '../../../../../../models';
 import { ApplicationsRequestsService } from '../../services/applications.request-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-application-plate-list',
@@ -11,7 +12,7 @@ import { ApplicationsRequestsService } from '../../services/applications.request
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [TuiDestroyService]
 })
-export class ApplicationPlateListComponent {
+export class ApplicationPlateListComponent implements OnInit {
 
     public readonly count: number = 10;
     public modelSubject$: BehaviorSubject<ApplicationPlateViewModel[] | null> = new BehaviorSubject<ApplicationPlateViewModel[] | null>(null);
@@ -21,9 +22,18 @@ export class ApplicationPlateListComponent {
 
     constructor(
         private _applicationsRequestsService: ApplicationsRequestsService,
-        private _destroyService: TuiDestroyService
+        private _destroyService: TuiDestroyService,
+        private _activatedRoute: ActivatedRoute,
     ){
-        this.initModel();
+    }
+    public ngOnInit(): void {
+        this._activatedRoute.queryParams.subscribe(x => {
+            if (x['apps']){
+                this.modelSubject$.next([]);
+            } else {
+                this.initModel();
+            }
+        });
     }
 
     public addTags(tags: string[]): void {
@@ -58,7 +68,7 @@ export class ApplicationPlateListComponent {
                     this.hasMore = model.count + (this.modelSubject$.getValue() ?? []).length < model.total;
 
                     return model.list.map((item: ApplicationModel) => new ApplicationPlateViewModel(item));
-                })
+                }),
             );
     }
 
