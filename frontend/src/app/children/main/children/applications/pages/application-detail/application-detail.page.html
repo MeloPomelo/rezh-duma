@@ -59,7 +59,7 @@
                 <span class="app-detail-subtitle">Прикрепленные файлы: </span>
                 <span class="app-detail-item-files">
                     <ul class="app-detail-list-file">
-                        <li *ngFor="let file of model.files">
+                        <li *ngFor="let file of model.files" (click)="download(file)">
                             <span class="material-symbols-outlined"
                                 >description</span
                             >

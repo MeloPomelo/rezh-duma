@@ -85,4 +85,8 @@ export class ApplicationDetailPage implements OnInit {
             this.feedback = result;
         });
     }
+
+    public download(name: string): void {
+        this._applicationsRequestsService.dowloadFile(name);
+    }
 }
