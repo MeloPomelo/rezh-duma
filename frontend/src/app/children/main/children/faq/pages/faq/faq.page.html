@@ -3,9 +3,9 @@
     <div class="faq-search-box">
         <mat-form-field class="example-form-field faq-search" appearance="fill">
             <mat-label>Найти ответ</mat-label>
-            <input matInput type="text" placeholder="" />
+            <input matInput type="text" placeholder="" #inpt (input)="search(inpt.value)" />
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
     </div>
-    <app-question-block></app-question-block>
+    <app-question-block [faqList]="(faqSubj$ | async) ?? []" [openedId]="(selectedFaqSubj$ | async) ?? -1"></app-question-block>
 </div>

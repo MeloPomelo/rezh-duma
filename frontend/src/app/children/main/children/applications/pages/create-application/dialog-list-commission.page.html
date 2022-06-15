@@ -1,0 +1,32 @@
+<div class="modal-window-container">
+    <h1 mat-dialog-title>Список депутатов по комиссиям</h1>
+    <div mat-dialog-content>
+        <mat-form-field class="list-by-county-form" appearance="fill">
+            <mat-label>Выберите нужную комиссию</mat-label>
+            <mat-select [(value)]="selectedCommission">
+                <mat-option value="commission1">Мандатная коммиссия</mat-option>
+                <mat-option value="commission2">По экономике и бюджету</mat-option>
+                <mat-option value="commission3">По противодействию коррупции</mat-option>
+                <mat-option value="commission4">По вопросам местного самоуправления</mat-option>
+                <mat-option value="commission5">По селу и сельскому хозяйству</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="list-by-county">
+            <span class="subtitle-list-by-county">Депутаты этой коммиссии:</span>
+            <ul>
+                <li
+                    class="county-list-item"
+                    *ngFor="let countyMP of commissions[selectedCommission]"
+                >
+                    {{countyMP}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="dialog-close" mat-button mat-dialog-close>
+            Закрыть
+        </button>
+    </div>
+</div>

@@ -9,6 +9,10 @@ import { MainRoutingModule } from './children/main/main.routing-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthRoutingModule } from './tmp/auth/auth.routing-module';
 import { RegistryRoutingModule } from './tmp/registry/registry.routing-module';
+import { AuthGuard } from './shared/guard/auth.guard';
+import { AuthService } from './shared/services/auth.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 const components: any[] = [
     AppComponent,
@@ -59,11 +63,11 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
         TuiRootModule,
         BreadcrumbModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
     ],
     declarations: components,
     bootstrap: components,
-    exports: [
-        RouterModule
-    ]
+    providers: [AuthService],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}

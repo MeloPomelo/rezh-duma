@@ -1,5 +1,5 @@
 .sidebar {
-    height: 500px;
+    height: max-content;
     width: 180px;
     background-color: #fcffff;
     border-radius: 10px;
@@ -11,8 +11,8 @@
     margin-right: 5px;
 }
 
-.sidebar-item-icon:hover{
-  cursor: pointer;
+.sidebar-item-icon:hover {
+    cursor: pointer;
 }
 
 .sidebar-item {
@@ -22,6 +22,21 @@
 }
 
 .sideber-item-name:hover {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sidebar-auth {
+    margin-top: 30px;
+}
+
+.sidebar-create-voting {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.sidebar span.sideber-item-name {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
 }

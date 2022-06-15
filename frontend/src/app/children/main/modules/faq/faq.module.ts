@@ -10,6 +10,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 // import { TagsModule } from '../../../../modules/tags/tags.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FaqsRequestsService } from './services/faq.request-service';
 const components: any = [QuestionBlockComponent];
 
 @NgModule({
@@ -22,6 +23,8 @@ const components: any = [QuestionBlockComponent];
     ],
     declarations: components,
     exports: components,
-    providers: [],
+    providers: [
+        FaqsRequestsService
+    ],
 })
 export class FaqModule {}

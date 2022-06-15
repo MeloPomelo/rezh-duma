@@ -1,3 +1,4 @@
+import { SearchRequestsService } from './../../models/main/search/services/search.service';
 import { NavBarModule } from './../../modules/navbar/navbar.module';
 import { SideBarModule } from './../../modules/sidebar/sidebar.module';
 import { TagsModule } from '../../modules/tags/tags.module';
@@ -15,8 +16,19 @@ import { FaqRoutingModule } from './children/faq/faq.routing-module';
 
 import { MainDomainsModule } from './modules/main-domains/main-domains.module';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainLayoutPage } from './pages/main-layout/main-layout.page';
+
+import { AuthService } from '../../shared/services/auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../environments/environment';
+
+import { TuiComboBoxModule, TuiDataListWrapperModule } from '@taiga-ui/kit';
+import { TuiDataListModule, TuiHintControllerModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { TuiLetModule } from '@taiga-ui/cdk';
+import { HttpClientModule } from '@angular/common/http';
+
+
 // import { MatInputModule } from '@angular/material/input';
 // import { MatIconModule } from '@angular/material/icon';
 
@@ -91,6 +103,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        HttpClientModule,
         BreadcrumbModule,
         FooterModule,
         NavBarModule,
@@ -99,7 +112,15 @@ const routes: Routes = [
         FormsModule,
         MatButtonModule,
         TagsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        TuiComboBoxModule,
+        TuiDataListModule,
+        TuiDataListWrapperModule,
+        ReactiveFormsModule,
+        TuiLetModule,
+        TuiTextfieldControllerModule,
     ],
+    providers: [AuthService, SearchRequestsService],
     declarations: components,
     exports: [RouterModule],
 })

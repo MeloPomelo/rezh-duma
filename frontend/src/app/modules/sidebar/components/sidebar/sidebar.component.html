@@ -1,31 +1,99 @@
 <div class="sidebar">
     <ul>
         <li (click)="gotoPage(applicationPage)" class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">description</span>
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >description</span
+            >
             <span class="sideber-item-name">Заявки</span>
         </li>
+
         <li (click)="gotoPage(votingPage)" class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">check_circle</span>
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >check_circle</span
+            >
             <span class="sideber-item-name">Голосования</span>
         </li>
+
         <li (click)="gotoPage(faqPage)" class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">help</span>
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >help</span
+            >
             <span class="sideber-item-name">FAQ</span>
         </li>
-        <li (click)="gotoPage(createPage)" class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">add_circle</span>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+            (click)="gotoPage(createVoting)"
+            class="sidebar-item sidebar-create-voting"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >add_circle</span
+            >
+            <span class="sideber-item-name">Создать опрос</span>
+        </li>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) === 'Guest'"
+            (click)="gotoPage('auth')"
+            class="sidebar-item sidebar-auth"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >login</span
+            >
+            <span class="sideber-item-name">Войти</span>
+        </li>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) === 'User'"
+            (click)="gotoPage(createApplicationPage)"
+            class="sidebar-item"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >add_circle</span
+            >
             <span class="sideber-item-name">Создать заявку</span>
         </li>
-        <li (click)="gotoPage(userProfile)" class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">person</span>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
+            (click)="gotoPage(userProfile)"
+            class="sidebar-item"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >person</span
+            >
             <span class="sideber-item-name">Личные данные</span>
         </li>
-        <li class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined"> article </span>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
+            class="sidebar-item"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined">
+                article
+            </span>
             <span class="sideber-item-name">Мои заявки</span>
         </li>
-        <li class="sidebar-item">
-            <span class="sidebar-item-icon material-symbols-outlined">logout</span>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+            class="sidebar-item"
+            (click)="gotoPage(analyticsPage)"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined">
+                query_stats
+            </span>
+            <span class="sideber-item-name">Аналитика</span>
+        </li>
+
+        <li
+            *ngIf="(userTypeSubj$ | async) !== 'Guest'"
+            (click)="userSignOut()"
+            class="sidebar-item"
+        >
+            <span class="sidebar-item-icon material-symbols-outlined"
+                >logout</span
+            >
             <span class="sideber-item-name">Выйти</span>
         </li>
     </ul>

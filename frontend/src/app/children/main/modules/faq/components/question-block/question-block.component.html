@@ -17,12 +17,13 @@
         [attr.id]="'accordion-header-' + index"
         [attr.aria-expanded]="accordionItem.expanded"
         [attr.aria-controls]="'accordion-body-' + index"
+        [expanded]="faq.id === openedId"
     >
         <div
             class="example-accordion-item-header question-block-item"
             (click)="accordionItem.toggle()"
         >
-            {{ faq.question }}
+            {{ faq.title }}
             <span class="example-accordion-item-description"></span>
             <span class="material-icons question-icon-open"> add </span>
         </div>
@@ -33,11 +34,7 @@
             [attr.id]="'accordion-body-' + index"
             [attr.aria-labelledby]="'accordion-header-' + index"
         >
-            {{ faq.answer }}
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Perferendis excepturi incidunt ipsum deleniti labore, tempore non
-            nam doloribus blanditiis veritatis illo autem iure aliquid ullam rem
-            tenetur deserunt velit culpa?
+            {{ faq.text }}
         </div>
     </cdk-accordion-item>
 </cdk-accordion>

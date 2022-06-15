@@ -1,7 +1,5 @@
 <div class="tag-list">
     <div class="tag-item" *ngFor="let tagName of tagsList">
-        <!-- <span class="tag">{{ tagName }}</span> -->
-
-        <mat-button-toggle class="tag" value="flour">{{ tagName }}</mat-button-toggle>
+        <mat-button-toggle class="tag" [value]="tagName" (change)="selectTags($event.value)">{{ tagName }}</mat-button-toggle>
     </div>
 </div>
