@@ -9,6 +9,7 @@ export class ApplicationPlateViewModel extends BaseDomainPlateViewModel {
     public isPublic: boolean;
     public status: string;
     public feedback: string;
+    public rec: string;
 
     constructor(model: ApplicationModel) {
         super(model);
@@ -19,5 +20,6 @@ export class ApplicationPlateViewModel extends BaseDomainPlateViewModel {
         this.isPublic = model.isPublic;
         this.status = model.status;
         this.feedback = model.feedback;
+        this.rec = model.recipient;
     }
 }

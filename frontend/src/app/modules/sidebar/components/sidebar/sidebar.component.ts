@@ -48,8 +48,13 @@ export class SidebarComponent implements AfterViewInit {
         // this.authService = authS;
     }
 
-    public gotoPage(namePage: string): void {
-        this._router.navigate([`/${namePage}`]);
+    public gotoPage(namePage: string, toMy: boolean = false ): void {
+        if (toMy){
+            this._router.navigate([`/${namePage}`], { queryParams: { 'apps': 'my' } });
+        } else {
+            this._router.navigate([`/${namePage}`]);
+        }
+
     }
 
     public userSignOut(): Promise<void> {
@@ -65,7 +70,6 @@ export class SidebarComponent implements AfterViewInit {
 
         this.authService.getUserType().subscribe((snap: any) => {
             this.userTypeSubj$.next(snap.type);
-            console.log(this.userTypeSubj$.next(snap.type));
         });
 
     }
