@@ -28,6 +28,16 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
+        path: 'create',
+        component: CreateVotingPage,
+        data: {
+            title: 'Создание опроса',
+            breadcrumb: { label: 'Создание опроса', title: 'Создание опроса' },
+        },
+        pathMatch: 'full',
+        canActivate: [AuthGuard],
+    },
+    {
         path: 'detail',
         component: VotingDetailPage,
         data: {
@@ -35,19 +45,6 @@ const routes: Routes = [
             breadcrumb: {
                 label: 'Опрос о благоустройстве общественных территорий города Реж',
                 title: 'Опрос о благоустройстве общественных территорий города Реж',
-            },
-        },
-        pathMatch: 'full',
-        canActivate: [AuthGuard],
-    },
-    {
-        path: 'create',
-        component: CreateVotingPage,
-        data: {
-            title: 'Создание опроса',
-            breadcrumb: {
-                label: 'Создание опроса',
-                title: 'Создание опроса',
             },
         },
         pathMatch: 'full',
