@@ -7,7 +7,7 @@
 
             <div class="rigth-box">
                 <span
-                    *ngIf="(userTypeSubj$ | async) === 'Guest' || (userTypeSubj$ | async) === 'User'"
+                    *ngIf="(userTypeSubj$ | async) !== 'Deputy'"
                     class="intro-title"
                     >Добрый день, опишите тему вашей проблемы</span
                 >
@@ -54,8 +54,6 @@
                 </div>
             </div>
         </div>
-
-     
     </div>
 
     <div>
