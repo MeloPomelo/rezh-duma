@@ -6,39 +6,56 @@
             </div>
 
             <div class="rigth-box">
-                <span class="intro-title"
+                <span
+                    *ngIf="(userTypeSubj$ | async) === 'Guest' || (userTypeSubj$ | async) === 'User'"
+                    class="intro-title"
                     >Добрый день, опишите тему вашей проблемы</span
                 >
+
+                <span
+                    *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+                    class="intro-title"
+                    >Добрый день, напишите запрос</span
+                >
                 <div class="user-request">
-                        <tui-combo-box
-                            [formControl]="control"
-                            [valueContent]="value"
-                            [(search)]="search"
+                    <tui-combo-box
+                        [formControl]="control"
+                        [valueContent]="value"
+                        [(search)]="search"
                     >
-                            Например: ЖКХ, дороги, медицина
-                            <input tuiTextfield placeholder="" (input)="nextSearch()"/>
-                            <ng-template #value let-item>
-                            </ng-template>
-                            <ng-template tuiDataList>
-                                <tui-data-list emptyContent="Ничего не найдено">
-                                    <button *ngFor="let item of (modelSubj$ | async)?.list" tuiOption
-                                        [routerLink]="item.url" [queryParams]="item.params">
-                                        <div class="option-item">
-                                            <span class="option-item__group">{{item.group}}</span>
-                                            <span>{{item.title}}</span>
-                                        </div>
-                                    </button>
-                                </tui-data-list>
-                            </ng-template>
-                            <ng-template #loading>
-                                ...
-                            </ng-template>
-                        </tui-combo-box>
+                        Например: ЖКХ, дороги, медицина
+                        <input
+                            tuiTextfield
+                            placeholder=""
+                            (input)="nextSearch()"
+                        />
+                        <ng-template #value let-item> </ng-template>
+                        <ng-template tuiDataList>
+                            <tui-data-list emptyContent="Ничего не найдено">
+                                <button
+                                    *ngFor="let item of (modelSubj$ | async)?.list"
+                                    tuiOption
+                                    [routerLink]="item.url"
+                                    [queryParams]="item.params"
+                                >
+                                    <div class="option-item">
+                                        <span class="option-item__group"
+                                            >{{item.group}}</span
+                                        >
+                                        <span>{{item.title}}</span>
+                                    </div>
+                                </button>
+                            </tui-data-list>
+                        </ng-template>
+                        <ng-template #loading> ... </ng-template>
+                    </tui-combo-box>
 
                     <!-- <button mat-flat-button class="user-send-request">Поиск</button> -->
                 </div>
             </div>
         </div>
+
+     
     </div>
 
     <div>
