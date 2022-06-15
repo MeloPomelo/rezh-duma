@@ -14,7 +14,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { NotFoundModule } from "./components/not-found/not-found.module";
+import { NotFoundModule } from './components/not-found/not-found.module';
 
 const components: any[] = [
     AppComponent
