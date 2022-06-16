@@ -21,6 +21,7 @@ import { TuiTextAreaModule } from '@taiga-ui/kit';
 import { TuiLabelModule } from '@taiga-ui/core';
 import { TuiDataListModule } from '@taiga-ui/core';
 import { TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
+import { TuiButtonModule } from '@taiga-ui/core';
 
 const components: any[] = [VotingPage, VotingDetailPage, CreateVotingPage];
 
@@ -80,6 +81,7 @@ const routes: Routes = [
         TuiDataListModule,
         TuiDataListWrapperModule,
         TuiSelectModule,
+        TuiButtonModule,
     ],
     declarations: components,
     exports: [RouterModule],

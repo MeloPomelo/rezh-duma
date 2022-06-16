@@ -51,7 +51,10 @@
         </div>
 
         <div class="create-voting-content-list">
-            <div class="survey-content-item" *ngFor="let survey of countAnswers">
+            <div
+                class="survey-content-item"
+                *ngFor="let survey of countSurveys"
+            >
                 <div class="item-top">
                     <div>
                         <span class="create-subtitle">Вопрос</span>
@@ -93,15 +96,68 @@
                         </li>
                     </ul>
 
-                    <span
-                        (click)="addAnswer()"
-                        class="sidebar-item-icon material-symbols-outlined add-answer"
-                        >add_circle</span
-                    >
+                    <div (click)="addAnswer()" class="add-answer">
+                        Добавить ответ...
+                        <span
+                            class="sidebar-item-icon material-symbols-outlined add-answer-icon"
+                            >add_circle</span
+                        >
+                    </div>
                 </div>
-
-                <div class="survey-content-item"></div>
             </div>
+
+            <div></div>
+            <!-- <span
+                (click)="addSurvey()"
+                class="sidebar-item-icon material-symbols-outlined add-answer-icon add-survey-icon"
+                >add_circle</span
+            > -->
+            <!-- <span
+                (click)="addSurvey()"
+                class="sidebar-item-icon material-symbols-outlined add-survey"
+                >add_circle</span
+            > -->
+            <!-- 
+            <div (click)="addSurvey()" class="add-answer add-survey">
+                Добавить вопрос...
+                <span
+                    class="sidebar-item-icon material-symbols-outlined add-answer-icon"
+                    >add_circle</span
+                >
+            </div> -->
+
+            <div class="btn-create-voting">
+                <button
+                    (click)="addSurvey()"
+                    tuiButton
+                    type="button"
+                    appearance="outline"
+                    class="tui-space_right-3 tui-space_bottom-3 add-answer-btn"
+                    [size]="'m'"
+                >
+                    Добавить вопрос
+                </button>
+
+                <button
+                    tuiButton
+                    type="button"
+                    appearance="accent"
+                    class="tui-space_right-3 tui-space_bottom-3"
+                    [size]="'m'"
+                >
+                    Создать опрос
+                </button>
+            </div>
+<!-- 
+            <div class="submit-voting-app-form">
+                <button type="submit" mat-flat-button color="accent">
+                    Добавить вопрос
+                </button>
+
+                  <button type="submit" mat-flat-button color="accent">
+                    Отправить голосование
+                </button>
+            </div> -->
         </div>
     </form>
 </div>

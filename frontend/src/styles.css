@@ -43,10 +43,10 @@ body {
 }
 
 .response-form .mat-form-field-infix {
-     width: 500px !important;
+    width: 500px !important;
 }
 
-.response-contacst .mat-form-field-infix{
+.response-contacst .mat-form-field-infix {
     width: 300px !important;
 }
 .mat-form-field-appearance-fill .mat-form-field-ripple {
@@ -317,4 +317,14 @@ app-voting-plate {
 
 .no-visible {
     display: none !important;
+}
+
+tui-wrapper[data-appearance="primary"] {
+    color: #151515;
+    background: #FBFFFF;
+    border: 1px #151515 solid;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
 }

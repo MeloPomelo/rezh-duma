@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TUI_LAST_DAY, TuiDay } from '@taiga-ui/cdk';
 import { TuiNamedDay } from '@taiga-ui/kit';
 
+
 @Component({
     templateUrl: './create-voting.page.html',
     styleUrls: ['./styles/create-voting.page.css'],
@@ -14,6 +15,9 @@ export class CreateVotingPage {
         textVoting: new FormControl('', Validators.required),
         typeQ: new FormControl(),
     });
+
+
+
 
     public from: TuiDay | null = null;
     public to: TuiDay | null = null;
@@ -32,7 +36,7 @@ export class CreateVotingPage {
 
     public countAnswers: any[] = new Array();
     public countSurveys: any[] = new Array();
-    
+
     constructor() {
         this.countSurveys.length = 1;
         this.countAnswers.length = 1;

@@ -94,16 +94,55 @@
 }
 
 .add-answer {
-    font-size: 35px;
     margin: 0 auto;
-    display: table;
+    display: flex;
+    width: max-content;
+    padding: 5px;
+}
+
+.add-answer-icon {
+    font-size: 25px;
     /* margin-left: -55px; */
 }
 
-.add-answer:hover {
+.add-answer:hover,
+.add-survey-icon:hover {
     cursor: pointer;
 }
 
-.add-answer:active {
+.add-answer:active,
+.add-survey-icon:active {
     color: rgb(15 15 15/ 50%);
 }
+
+.add-survey-icon {
+    font-size: 40px;
+}
+
+.add-survey {
+    border: 1px solid rgb(15 15 15/ 50%);
+    background-color: #fbffff;
+    border-radius: 10px;
+}
+
+.add-answer-btn {
+    background-color: #fbffff;
+    /* color: #151515;
+
+    border: 1px solid #151515;
+    border-radius: 10px; */
+}
+
+.btn-create-voting {
+    width: max-content;
+    margin: 0 auto;
+}
+/* .submit-voting-app-form button {
+    color: #151515;
+    background: #FBFFFF;
+    border: 1px #151515 solid;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+} */

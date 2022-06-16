@@ -99,3 +99,8 @@
 .submit-create-app-form {
   padding-bottom: 40px;
 }
+
+.btn-create-voting {
+    width: max-content;
+    margin: 0 auto;
+}
