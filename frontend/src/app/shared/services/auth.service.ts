@@ -7,8 +7,9 @@ import {
     AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+
 import { filter, map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, from, Observable, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -16,7 +17,9 @@ import { filter, map, switchMap } from 'rxjs/operators';
 export class AuthService {
     public userData: any; // Save logged in user data
 
-    public isLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    public isLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+        false
+    );
     constructor(
         public afs: AngularFirestore, // Inject Firestore service
         public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -28,14 +31,15 @@ export class AuthService {
         this.afAuth.authState.subscribe((user: any) => {
             if (user) {
                 this.userData = user;
+
+                // console.log(user);
                 localStorage.setItem('user', JSON.stringify(this.userData));
-                JSON.parse(localStorage.getItem('user')!);
                 this.isLogged$.next(true);
-                console.log(this.isLogged$);
+                JSON.parse(localStorage.getItem('user')!);
             } else {
                 localStorage.setItem('user', 'null');
-                JSON.parse(localStorage.getItem('user')!);
                 this.isLogged$.next(false);
+                JSON.parse(localStorage.getItem('user')!);
             }
         });
     }
@@ -47,8 +51,8 @@ export class AuthService {
                 this.ngZone.run(() => {
                     this.router.navigate(['']);
                 });
-
-                // this.setUserData(result.user);
+                // console.log(result.user);
+                this.setUserData(result.user);
             })
             .catch((error: any) => {
                 window.alert(error.message);
@@ -61,8 +65,9 @@ export class AuthService {
             .then((result: any) => {
                 /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
-                this.sendVerificationMail();
-                result.user.push({ type: 'User' });
+                // this.sendVerificationMail();
+                // result.user['type'] = 'User';
+
                 this.setUserData(result.user);
                 this.router.navigate(['']);
             })
@@ -113,6 +118,13 @@ export class AuthService {
             `users/${user.uid}`
         );
 
+        // let userType!: BehaviorSubject<string>;
+
+        // this.userType().subscribe((snap: any) => {
+        //     userType.next(snap.type);
+        //     console.log(snap);
+        // });
+
         const userData: any = {
             uid: user.uid,
             email: user.email,
@@ -161,11 +173,10 @@ export class AuthService {
     }
 
     public getUserType(): any {
-        return this.isLogged$
-            .pipe(
-                filter((isLogged: boolean) => isLogged),
-                switchMap(() => this.userType())
-            );
+        return this.isLogged$.pipe(
+            filter((isLogged: boolean) => isLogged),
+            switchMap(() => this.userType())
+        );
     }
 
     public userType(): any {
@@ -173,6 +184,13 @@ export class AuthService {
             .doc(`users/${JSON.parse(localStorage['user']).uid}`)
             .get()
             .pipe();
+    }
+
+    public getUserType2(): 'User' | 'Deputy' {
+        const user: any = JSON.parse(localStorage['user']);
+        console.log(user.email === 'deputy@urfu.ru' ? 'Deputy' : 'User');
+
+        return user.email === 'deputy@urfu.ru' ? 'Deputy' : 'User';
     }
 }
 

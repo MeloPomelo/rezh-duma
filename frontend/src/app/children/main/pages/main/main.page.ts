@@ -31,6 +31,8 @@ export class MainPage implements OnInit {
         'Guest'
     );
 
+    public userType!: string;
+
     private _search: BehaviorSubject<string | null> = new BehaviorSubject<
         string | null
     >(null);
@@ -53,6 +55,13 @@ export class MainPage implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.authService.isLogged$.subscribe((snap: any) => {
+            if (snap) {
+                this.userTypeSubj$.next(this.authService.getUserType2());
+                this.userType = this.authService.getUserType2();
+            }
+        });
+
         this._search
             .pipe(
                 delay(1000),
@@ -65,9 +74,10 @@ export class MainPage implements OnInit {
                 this.modelSubj$.next(model)
             );
 
-        this.authService.getUserType().subscribe((snap: any) => {
-            this.userTypeSubj$.next(snap.type);
-            console.log(this.userTypeSubj$.next(snap.type));
-        });
+        // this.authService.getUserType().subscribe((snap: any) => {
+        //     this.userTypeSubj$.next(snap.type);
+        // });
+
+        // this.userType = this.authService.getUserType2();
     }
 }

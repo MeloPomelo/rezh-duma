@@ -11,7 +11,7 @@ import { MainPage } from './pages/main/main.page';
 import { VotingRoutingModule } from './children/voting/voting.routing-module';
 import { UserProfileRoutingModule } from './children/user-profile/user-profile.routing-module';
 import { ApplicationsRoutingModule } from './children/applications/applications.routing-module';
-
+// import { ApplicationPlateListComponent } from '/../../components/application-plate-list/application-plate-list.component';
 import { FaqRoutingModule } from './children/faq/faq.routing-module';
 
 import { MainDomainsModule } from './modules/main-domains/main-domains.module';
@@ -29,10 +29,14 @@ import { TuiLetModule } from '@taiga-ui/cdk';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 // import { MatInputModule } from '@angular/material/input';
 // import { MatIconModule } from '@angular/material/icon';
 
-const components: any[] = [MainPage, MainLayoutPage];
+const components: any[] = [
+    MainPage,
+    MainLayoutPage,
+];
 
 const routes: Routes = [
     {

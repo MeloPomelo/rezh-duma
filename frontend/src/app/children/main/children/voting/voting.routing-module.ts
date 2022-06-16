@@ -5,16 +5,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { VotingModule } from '../../modules/voting/voting.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
-import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthGuard } from '../../../../shared/guard/auth.guard';
 import { CreateVotingPage } from './pages/create-voting/create-voting.page';
+
+import { TuiInputModule } from '@taiga-ui/kit';
+import { TuiInputDateModule } from '@taiga-ui/kit';
+import { TuiTextAreaModule } from '@taiga-ui/kit';
+import { TuiLabelModule } from '@taiga-ui/core';
+import { TuiDataListModule } from '@taiga-ui/core';
+import { TuiDataListWrapperModule, TuiSelectModule } from '@taiga-ui/kit';
+
 const components: any[] = [VotingPage, VotingDetailPage, CreateVotingPage];
 
 const routes: Routes = [
@@ -65,6 +72,14 @@ const routes: Routes = [
         MatRadioModule,
         FormsModule,
         MatButtonModule,
+        ReactiveFormsModule,
+        TuiInputModule,
+        TuiInputDateModule,
+        TuiTextAreaModule,
+        TuiLabelModule,
+        TuiDataListModule,
+        TuiDataListWrapperModule,
+        TuiSelectModule,
     ],
     declarations: components,
     exports: [RouterModule],

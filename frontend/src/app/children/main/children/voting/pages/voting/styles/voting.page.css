@@ -30,7 +30,6 @@
     font-weight: 500;
     margin-bottom: 30px;
     width: 100%;
-    margin-left: 50px;
     padding-top: 20px;
 }
 
@@ -72,7 +71,7 @@
 }
 
 .voting-lazy-load {
-  margin: 25px auto;
+    margin: 25px auto;
     width: max-content;
     display: flex;
     align-items: center;

@@ -1,5 +1,107 @@
-<div class="">
-    <div class="create-voting-box">
-        <h2 class="create-voting-title">Голосования</h2>
-    </div>
+<div class="create-voting-box">
+    <h2 class="create-voting-title">Создание голосования</h2>
+    <form class="b-form" [formGroup]="createVotingGroup">
+        <div class="create-voting-item">
+            <span class="create-subtitle">Название *</span>
+            <tui-input
+                formControlName="testValue"
+                class="create-input-voting create-name-voting"
+            >
+                Выбор нового храма
+                <input tuiTextfield type="email" />
+            </tui-input>
+        </div>
+
+        <div class="create-voting-item">
+            <span class="create-subtitle">Срок проведения *</span>
+            <p class="b-form">
+                <tui-input-date
+                    class="create-input-voting create-date-voting"
+                    [min]="min"
+                    [max]="max"
+                    [(ngModel)]="from"
+                >
+                    От
+                </tui-input-date>
+            </p>
+            <p class="b-form">
+                <tui-input-date
+                    class="create-input-voting create-date-voting"
+                    [min]="from || min"
+                    [items]="items"
+                    [(ngModel)]="to"
+                >
+                    До
+                </tui-input-date>
+            </p>
+        </div>
+
+        <div class="create-voting-item">
+            <span class="create-subtitle">Текст опроса *</span>
+            <div class="tui-row create-input-voting">
+                <div class="tui-col_md-6 create-text-voting">
+                    <tui-text-area
+                        formControlName="textVoting"
+                        class="tui-space_bottom-4 field-large"
+                    >
+                        Ввод...
+                    </tui-text-area>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-voting-content-list">
+            <div class="survey-content-item" *ngFor="let survey of countAnswers">
+                <div class="item-top">
+                    <div>
+                        <span class="create-subtitle">Вопрос</span>
+                        <tui-input class="survey-input-name">
+                            Задайте вопрос
+                            <input tuiTextfield type="email" />
+                        </tui-input>
+                    </div>
+
+                    <div>
+                        <tui-select
+                            tuiTextfieldSize="m"
+                            class="tui-space_vertical-4 survey-type-select"
+                            formControlName="typeQ"
+                        >
+                            Тип вопроса
+                            <input
+                                tuiTextfield
+                                placeholder="Выберите тип вопроса"
+                            />
+                            <tui-data-list-wrapper
+                                *tuiDataList
+                                [items]="typeQuestion"
+                            ></tui-data-list-wrapper>
+                        </tui-select>
+                    </div>
+                </div>
+
+                <hr class="survey-underline" />
+
+                <div class="survey-list">
+                    <span class="create-subtitle">Варианты ответа</span>
+                    <ul class="answer-list">
+                        <li *ngFor="let survey of countAnswers">
+                            <tui-input class="answer-input-item">
+                                Ответ
+                                <input tuiTextfield type="text" />
+                            </tui-input>
+                        </li>
+                    </ul>
+
+                    <span
+                        (click)="addAnswer()"
+                        class="sidebar-item-icon material-symbols-outlined add-answer"
+                        >add_circle</span
+                    >
+                </div>
+
+                <div class="survey-content-item"></div>
+            </div>
+        </div>
+    </form>
 </div>

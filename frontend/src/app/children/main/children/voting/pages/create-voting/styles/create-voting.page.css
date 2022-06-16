@@ -1,80 +1,109 @@
-.voting {
-    display: flex;
-    border: 2px solid #9fe0efa1;
-    border-radius: 7px;
-    width: calc((100% / 3) - 30px);
-    height: 350px;
-    flex-direction: column;
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 300;
-    padding: 30px 20px;
-    transition-duration: 0.2s;
-}
-
-.voting-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-}
-
-.voting:hover {
-    transform: scale(1.03);
-}
-
-.voting-title {
+.create-voting-title {
     font-family: Manrope;
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 30px;
     width: 100%;
-    margin-left: 50px;
     padding-top: 20px;
 }
 
-.voting-deadline {
-    font-family: Inter;
-    font-size: 16px;
-    display: block;
-    margin-bottom: 30px;
+.create-name-voting {
+    width: 500px;
 }
 
-.voting-btn {
-    font-family: Inter;
-    /* width: 170px; */
-    justify-self: flex-end;
-    background-color: inherit;
-    border: 1px solid #151515;
-    border-radius: 7px;
-    padding: 10px 75px;
-    display: block;
-    margin: 0 auto;
-    font-weight: 400;
-}
-
-.voting-btn:hover {
-    background-color: #fafafa;
-}
-.voting-block-bottom {
-    margin-top: auto;
-    /* margin-bottom: 20px; */
-}
-
-.voting-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+.create-input-voting,
+.survey-input-name {
     margin-top: 10px;
 }
 
-.voting-lazy-load {
-  margin: 25px auto;
-    width: max-content;
+.create-voting-item {
+    margin-bottom: 30px;
+}
+
+.create-date-voting {
+    width: 300px;
+}
+
+.field-large {
+    min-height: 15rem;
+}
+
+.create-text-voting {
+    min-width: 700px;
+}
+
+.create-voting-content-list {
+    position: absolute;
+    width: 800px;
+    /* height: 300px; */
+
+    left: calc(50% - 400px);
+    margin-top: 70px;
+}
+
+.survey-content-item {
+    width: 100%;
+    /* height: 300px; */
+    /* border: 1px solid rgb(14 10 2 / 50%); */
+    margin-bottom: 40px;
+    background: #fbffff;
+    border-radius: 10px;
+    padding: 20px 15px;
+}
+
+.survey-input-name {
+    width: 350px;
+}
+
+.survey-type-select {
+    width: 250px;
+}
+
+.item-top {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    justify-content: space-between;
+}
+
+.survey-underline {
+    color: rgb(15 15 15/ 50%);
+}
+
+/* .survey-list {
+    margin-left: 30px;
+} */
+
+.create-subtitle {
+    margin-left: 30px;
+}
+
+.answer-list {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+.answer-input-item {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    /* margin-left: -5px; */
+}
+
+.add-answer {
+    font-size: 35px;
+    margin: 0 auto;
+    display: table;
+    /* margin-left: -55px; */
+}
+
+.add-answer:hover {
+    cursor: pointer;
+}
+
+.add-answer:active {
+    color: rgb(15 15 15/ 50%);
 }

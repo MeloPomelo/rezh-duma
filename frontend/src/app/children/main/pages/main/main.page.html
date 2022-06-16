@@ -7,13 +7,14 @@
 
             <div class="rigth-box">
                 <span
-                    *ngIf="(userTypeSubj$ | async) !== 'Deputy'"
+                    *ngIf="(userTypeSubj$ | async) == 'User' || userType === 'User'"
+        
                     class="intro-title"
                     >Добрый день, опишите тему вашей проблемы</span
                 >
 
                 <span
-                    *ngIf="(userTypeSubj$ | async) === 'Deputy'"
+                    *ngIf="userType === 'Deputy'"
                     class="intro-title"
                     >Добрый день, напишите запрос</span
                 >

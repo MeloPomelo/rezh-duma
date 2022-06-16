@@ -36,10 +36,14 @@ export class SidebarComponent implements AfterViewInit {
     public faqPage: string = 'faq';
     public userProfile: string = 'user-profile';
     public analyticsPage: string = 'analytics';
-    public createVoting: string ='voting/create';
+    public createVoting: string = 'voting/create';
 
-    public userTypeSubj$: BehaviorSubject<string> = new BehaviorSubject<string>('Guest');
+    public userTypeSubj$: BehaviorSubject<string> = new BehaviorSubject<string>(
+        'Guest'
+    );
 
+    public userType!: string;
+    
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
@@ -48,13 +52,14 @@ export class SidebarComponent implements AfterViewInit {
         // this.authService = authS;
     }
 
-    public gotoPage(namePage: string, toMy: boolean = false ): void {
-        if (toMy){
-            this._router.navigate([`/${namePage}`], { queryParams: { 'apps': 'my' } });
+    public gotoPage(namePage: string, toMy: boolean = false): void {
+        if (toMy) {
+            this._router.navigate([`/${namePage}`], {
+                queryParams: { apps: 'my' },
+            });
         } else {
             this._router.navigate([`/${namePage}`]);
         }
-
     }
 
     public userSignOut(): Promise<void> {
@@ -67,11 +72,18 @@ export class SidebarComponent implements AfterViewInit {
     // }
 
     public ngAfterViewInit(): void {
+        this.authService.isLogged$.subscribe((snap: any) => {
+            if (snap) {
+                this.userTypeSubj$.next(this.authService.getUserType2());
+                this.userType = this.authService.getUserType2();
+                console.log(this.userTypeSubj$.getValue());
+            }
+        });
 
         this.authService.getUserType().subscribe((snap: any) => {
             this.userTypeSubj$.next(snap.type);
+            // console.log(this.userTypeSubj$.getValue());
         });
-
     }
 
     // public ngDoCheck(): void {
