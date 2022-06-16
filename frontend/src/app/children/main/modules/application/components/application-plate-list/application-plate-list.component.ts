@@ -28,9 +28,8 @@ export class ApplicationPlateListComponent implements OnInit {
     }
     public ngOnInit(): void {
         this._activatedRoute.queryParams.subscribe(x => {
-            if (x['apps']){
-                this.initModel();
-            }
+            this.initModel();
+
         });
     }
 
