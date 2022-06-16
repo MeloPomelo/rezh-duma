@@ -11,6 +11,7 @@ export class ApplicationModel extends BaseDomainModel {
     public status: string;
     public feedback: string;
     public recipient: string;
+    public tags!: string[];
 
     constructor(model: IApplicationsResponseModel) {
         super(model);
@@ -23,6 +24,7 @@ export class ApplicationModel extends BaseDomainModel {
         this.status = model.status;
         this.feedback = model.feedback;
         this.recipient = model.recipient;
+        this.tags = model.tags;
     }
 
 }

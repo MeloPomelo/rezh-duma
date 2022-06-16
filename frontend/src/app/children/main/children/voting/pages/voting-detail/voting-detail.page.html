@@ -29,141 +29,142 @@
     </div>
 </div>
 
-<div class="voting-detail-content-list">
-    <div class="voting-detail-content-item">
-        <section class="example-section">
-            <label class="example-margin item-question"
-                >1. Как долго вы живете в городе Реж?:</label
-            >
-            <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >20 лет и больше</mat-radio-button
+<div *ngIf="isOpen" class="voting-detail-content-list" [@tuiHeightCollapse]="getAnimation()" [ngStyle]="{ 'overflow': 'hidden' }" >
+    <div  >
+        <div class="voting-detail-content-item" >
+            <section class="example-section">
+                <label class="example-margin item-question"
+                    >1. Как долго вы живете в городе Реж?:</label
                 >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >10-19 лет</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >5-9 лет</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >1-4 года</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >Меньше года</mat-radio-button
-                >
-            </mat-radio-group>
-        </section>
-    </div>
+                <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >20 лет и больше</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >10-19 лет</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >5-9 лет</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >1-4 года</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >Меньше года</mat-radio-button
+                    >
+                </mat-radio-group>
+            </section>
+        </div>
 
-    <div class="voting-detail-content-item">
-        <section class="example-section">
-            <label class="example-margin item-question"
-                >2. Оцените по пятибалльной шкале уровень благоустройства
-                общественных территорий (чистота, освещенность, уровень
-                озеленения, наличие малых архитектурных форм, спортивного и
-                детского оборудования, наличие условий для комфортного
-                передвижения маломобильных групп населения)</label
-            >
-            <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >5</mat-radio-button
+        <div class="voting-detail-content-item">
+            <section class="example-section">
+                <label class="example-margin item-question"
+                    >2. Оцените по пятибалльной шкале уровень благоустройства
+                    общественных территорий (чистота, освещенность, уровень
+                    озеленения, наличие малых архитектурных форм, спортивного и
+                    детского оборудования, наличие условий для комфортного
+                    передвижения маломобильных групп населения)</label
                 >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >4</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >3</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >2</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >1</mat-radio-button
-                >
-            </mat-radio-group>
-        </section>
-    </div>
+                <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >5</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >4</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >3</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >2</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >1</mat-radio-button
+                    >
+                </mat-radio-group>
+            </section>
+        </div>
 
-    <div class="voting-detail-content-item">
-        <section class="example-section">
-            <label class="example-margin item-question"
-                >3. Какие функциональные зоны на общественных территориях
-                необходимо благоустроить в первую очередь? (отметьте от одного
-                до четырех вариантов ответа)</label
-            >
-            <div class="answer-list">
-                <mat-checkbox class="example-margin item-answer"
-                    >Пешеходная зона
-                </mat-checkbox>
-                <mat-checkbox class="example-margin item-answer"
-                    >Зона спокойного отдыха (лавочки, беседки,
-                    перголы)</mat-checkbox
+        <div class="voting-detail-content-item">
+            <section class="example-section">
+                <label class="example-margin item-question"
+                    >3. Какие функциональные зоны на общественных территориях
+                    необходимо благоустроить в первую очередь? (отметьте от одного
+                    до четырех вариантов ответа)</label
                 >
-                <mat-checkbox class="example-margin item-answer"
-                    >Зона для игр детей (детские площадки)</mat-checkbox
-                >
-                <mat-checkbox class="example-margin item-answer"
-                    >Зона парковки</mat-checkbox
-                >
-                <mat-checkbox class="example-margin item-answer"
-                    >Зона активного отдыха (спортивные площадки,
-                    велодорожки)</mat-checkbox
-                >
-                <mat-checkbox class="example-margin item-answer"
-                    >Историческая зона (памятники, парковые скульптуры,
-                    исторические объекты)</mat-checkbox
-                >
-            </div>
-        </section>
-    </div>
+                <div class="answer-list">
+                    <mat-checkbox class="example-margin item-answer"
+                        >Пешеходная зона
+                    </mat-checkbox>
+                    <mat-checkbox class="example-margin item-answer"
+                        >Зона спокойного отдыха (лавочки, беседки,
+                        перголы)</mat-checkbox
+                    >
+                    <mat-checkbox class="example-margin item-answer"
+                        >Зона для игр детей (детские площадки)</mat-checkbox
+                    >
+                    <mat-checkbox class="example-margin item-answer"
+                        >Зона парковки</mat-checkbox
+                    >
+                    <mat-checkbox class="example-margin item-answer"
+                        >Зона активного отдыха (спортивные площадки,
+                        велодорожки)</mat-checkbox
+                    >
+                    <mat-checkbox class="example-margin item-answer"
+                        >Историческая зона (памятники, парковые скульптуры,
+                        исторические объекты)</mat-checkbox
+                    >
+                </div>
+            </section>
+        </div>
 
-    <div class="voting-detail-content-item">
-        <section class="example-section">
-            <label class="example-margin item-question"
-                >4. Готовы ли вы участвовать в благоустройстве общественной
-                территории?</label
-            >
-            <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >Да</mat-radio-button
+        <div class="voting-detail-content-item">
+            <section class="example-section">
+                <label class="example-margin item-question"
+                    >4. Готовы ли вы участвовать в благоустройстве общественной
+                    территории?</label
                 >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="before"
-                    >Затрудняюсь ответить</mat-radio-button
-                >
-                <mat-radio-button
-                    class="example-margin item-answer"
-                    value="after"
-                    >нет</mat-radio-button
-                >
-            </mat-radio-group>
-        </section>
-    </div>
-
-    <div class="voting-detail-content-submit">
-        <button mat-raised-button class="voting-detail-btn">Отправить</button>
+                <mat-radio-group [(ngModel)]="labelPosition" class="answer-list">
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >Да</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="before"
+                        >Затрудняюсь ответить</mat-radio-button
+                    >
+                    <mat-radio-button
+                        class="example-margin item-answer"
+                        value="after"
+                        >нет</mat-radio-button
+                    >
+                </mat-radio-group>
+            </section>
+        </div>
+        <div class="voting-detail-content-submit">
+            <button mat-raised-button class="voting-detail-btn" (click)="vote()">Отправить</button>
+        </div>
     </div>
 </div>

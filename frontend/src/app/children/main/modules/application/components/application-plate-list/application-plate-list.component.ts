@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ApplicationPlateListComponent implements OnInit {
 
-    public readonly count: number = 10;
+    public readonly count: number = 6;
     public modelSubject$: BehaviorSubject<ApplicationPlateViewModel[] | null> = new BehaviorSubject<ApplicationPlateViewModel[] | null>(null);
     public hasMore: boolean = false;
 

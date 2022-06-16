@@ -11,5 +11,6 @@ export interface IApplicationsResponseModel extends IBaseDomainResponseModel {
     readonly status: string;
     readonly feedback: string;
     readonly recipient: string;
+    readonly tags: string[];
 }
 

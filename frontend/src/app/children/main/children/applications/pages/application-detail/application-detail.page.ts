@@ -92,4 +92,8 @@ export class ApplicationDetailPage implements OnInit {
     public download(name: string): void {
         this._applicationsRequestsService.dowloadFile(name);
     }
+
+    public getTags(tags: string[]): string {
+        return tags.map((tag: string) => `#${tag}`).join(' ');
+    }
 }
