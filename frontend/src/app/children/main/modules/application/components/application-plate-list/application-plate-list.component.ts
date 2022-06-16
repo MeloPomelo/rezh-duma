@@ -29,8 +29,6 @@ export class ApplicationPlateListComponent implements OnInit {
     public ngOnInit(): void {
         this._activatedRoute.queryParams.subscribe(x => {
             if (x['apps']){
-                this.modelSubject$.next([]);
-            } else {
                 this.initModel();
             }
         });
@@ -65,6 +63,11 @@ export class ApplicationPlateListComponent implements OnInit {
         return this._applicationsRequestsService.getItems(options, this._destroyService)
             .pipe(
                 map((model: IListOfModels<ApplicationModel>) => {
+                    if (this._activatedRoute.snapshot.queryParams['apps']){
+                        this.hasMore = false;
+
+                        return  model.list[0].id === 2 ?  [new ApplicationPlateViewModel(model.list[0])] : [];
+                    }
                     this.hasMore = model.count + (this.modelSubject$.getValue() ?? []).length < model.total;
 
                     return model.list.map((item: ApplicationModel) => new ApplicationPlateViewModel(item));
