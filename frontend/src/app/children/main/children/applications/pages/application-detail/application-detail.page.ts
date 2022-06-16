@@ -47,6 +47,8 @@ export class ApplicationDetailPage implements OnInit {
         testValue: new FormControl(),
     });
 
+    public status: string = 'Отрправлено на рассмотрение';
+
     constructor(
         private _route: ActivatedRoute,
         private _destroy$: TuiDestroyService,
@@ -85,6 +87,7 @@ export class ApplicationDetailPage implements OnInit {
         dialogRef.afterClosed().subscribe((result: any) => {
             console.log('The dialog was closed', result);
             this.feedback = result;
+            this.status = 'Обработана';
             this._ref.markForCheck();
         });
     }

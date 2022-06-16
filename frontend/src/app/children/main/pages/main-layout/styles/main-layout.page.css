@@ -181,3 +181,11 @@ ul {
         padding: 19px 140px;
     }
 }
+
+
+@media (max-width: 2000px) and (min-width: 1550px) {
+    .main-container {
+        padding: 150px 50px;
+    }
+}
+
