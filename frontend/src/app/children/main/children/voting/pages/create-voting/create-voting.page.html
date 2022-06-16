@@ -1,4 +1,5 @@
-<div class="create-voting-box">
+<div class="create-voting-box" *ngIf="show" [@tuiHeightCollapse]="getAnimation()" [ngStyle]="{ 'overflow': 'hidden' }">
+    <div>
     <h2 class="create-voting-title">Создание голосования</h2>
     <form class="b-form" [formGroup]="createVotingGroup">
         <div class="create-voting-item">
@@ -117,7 +118,7 @@
                 class="sidebar-item-icon material-symbols-outlined add-survey"
                 >add_circle</span
             > -->
-            <!-- 
+            <!--
             <div (click)="addSurvey()" class="add-answer add-survey">
                 Добавить вопрос...
                 <span
@@ -144,11 +145,12 @@
                     appearance="accent"
                     class="tui-space_right-3 tui-space_bottom-3"
                     [size]="'m'"
+                    (click)="create()"
                 >
                     Создать опрос
                 </button>
             </div>
-<!-- 
+<!--
             <div class="submit-voting-app-form">
                 <button type="submit" mat-flat-button color="accent">
                     Добавить вопрос
@@ -160,4 +162,15 @@
             </div> -->
         </div>
     </form>
+    </div>
+</div>
+
+<div *ngIf="showSuc" [@tuiHeightCollapse]="getAnimation()" [ngStyle]="{ 'overflow': 'hidden', 'height': '65vh', 'display': 'flex',     'justify-content': 'center' }">
+
+    <h1>
+        Опрос успешно создан
+    </h1>
+    <div>
+    </div>
+
 </div>
